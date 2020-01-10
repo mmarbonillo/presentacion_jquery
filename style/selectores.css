@@ -1,0 +1,14 @@
+.capa1, .capa2{
+    text-align: center;
+    width: 120px;
+    height: 110px;
+    border: 2px solid black;
+    float: left;
+    margin-right: 3%;
+}
+
+#ejemplocapas {
+    float: left;
+    width: 100%;
+    height: 200px;
+}

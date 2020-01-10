@@ -5,6 +5,7 @@ body{
 
 #all {
     font-family: 'Lato', sans-serif;
+    float: left;
 }
 
 #header{
@@ -72,10 +73,23 @@ body{
 }
 
 .text {
+    float: left;
     width: 90%;
     /*border: 1px solid red;*/
     margin-left: 3%;
     font-size: larger;
+}
+
+.subtext {
+    float: left;
+    margin-left: 3%;
+}
+
+.example {
+    border: 2px solid #A3E16F;
+    background-color: #C1EE9C;
+    border-radius: 20px;
+    padding-left: 3%;
 }
 
 .literal {

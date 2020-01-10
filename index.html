@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Maria Del Mar Fernandez Bonillo">
     <title>JQUERY</title>
 
     <!----------FONTS---------->
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-
 
     <link rel="stylesheet" href="style/index.css">
 </head>
@@ -18,7 +18,7 @@
             </div>
             <div id="menu">
                 <a href="#">Introducción</a>
-                <a href="selectores.html">Selectores</a>
+                <a href="pages/selectores.html">Selectores</a>
                 <a href="#">DOM</a>
                 <a href="#">Eventos</a>
                 <a href="#">Efectos</a>
@@ -45,15 +45,15 @@
                         <span class="cursiva">head</span>:</p> 
                     <div class="literal">
 <PRE>
-    &lt;script type="text/javascript" src="ruta-al-archivo/jquery.js"&gt;&lt;/style&gt;
+    &lt;script type="text/javascript" src="ruta-al-archivo/jquery.js"&gt;&lt;/script&gt;
 </PRE>
                     </div>
-
+                    
                     <h3>Desde enlace externo</h3>
                     <p>Añadiendo la siguiente línea en el <span class="cursiva">head</span>:</p>
                     <div class="literal">
 <PRE>
-    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"&gt;&lt;/style&gt;
+    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"&gt;&lt;/script&gt;
 </PRE>
                     </div>
                     <p>Como jQuery actúa directamente sobre el árbol DOM de las páginas, es imprescindible que esta haya cargado del todo antes 
@@ -62,11 +62,11 @@
                     </p>
                     <div class="literal">
 <PRE>
-    &lt;style type="text/javascript"&gt;
+    &lt;script type="text/javascript"&gt;
         $(document).ready(function(){
             //Código
         });
-    &lt;/style&gt;
+    &lt;/script&gt;
 </PRE>
                     </div>
                 </div>

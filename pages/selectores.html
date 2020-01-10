@@ -2,9 +2,106 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Maria Del Mar Fernandez Bonillo">
     <title>Selectores</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/selectores.css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $().ready(function(){
+            //EJEMPLO 1
+            $('#parrafoEjemplo').click(function(){
+                alert('Has pinchado el párrafo');
+            });
+
+            //EJEMPLO 2
+            $('.capa1').click(function(){
+                $('.capa2').css('background-color', 'unset');
+                $('.capa1').css('background-color', 'red');
+            });
+            $('.capa2').click(function(){
+                $('.capa1').css('background-color', 'unset');
+                $('.capa2').css('background-color', 'blue');
+            });
+            $('#restartej2').click(function(){
+                $('.capa1').css('background-color', 'unset');
+                $('.capa2').css('background-color', 'unset');
+            })
+        });
+    </script>
 </head>
 <body>
-    
+    <div id="all">
+        <div id="header">
+            <div id="logo">
+                <img id="logoimg" src="../images/jquery/logo.png" alt="logo" >
+            </div>
+            <div id="menu">
+                <a href="../index.html">Introducción</a>
+                <a href="#">Selectores</a>
+                <a href="#">DOM</a>
+                <a href="#">Eventos</a>
+                <a href="#">Efectos</a>
+            </div>
+        </div>
+        <div id="content">
+            <div id="pag1">
+                <h1>¿Qué es un selector?</h1>
+                <div class="text">
+                    <p>Los selectores son la forma en jQuery de seleccionar los elementos de una página.</p>
+                </div>
+                <div style="clear: both;"></div>
+                <h1>Tipos de Selectores</h1>
+                <div class="text">
+                    <h3>Selectores Básicos</h3>
+                    <div class="subtext">
+                        <h4>Selector de etiquetas</h4>
+                        <p>Con este selector accedemos a uno o varios elementos de nuestra página a través del nombre de la etiqueta.</p>
+                        <div class="literal">
+<PRE>
+    $('p') //Selecciona todas las etiquetas de párrafo de la página
+</PRE>
+                        </div>
+
+                        <h4>Selector de identificador</h4>
+                        <p>Sirve para acceder a un elemento de la página que tenga un identificador (<span class="cursiva">id</span>) específico.
+                            Para usarlo simplemente escribimos <span class="cursiva">#</span> y el nombre del identificador.
+                        </p>
+                        <div class="literal">
+<PRE>
+    $('#principal') //Estaríamos accediendo al elemento de id='principal'
+</PRE>
+                        </div>
+                        <p>Si por equivocación pusiesemos el mismo id a más de un elemento de la página, solo tendría en cuenta el primero que encuentre.
+                            Pulsa cualquiera de estos dos párrafos para verlo:
+                        </p>
+                        <div class="example">
+                            <PRE>//Ambos tienen id="parrafoEjemplo"</PRE>
+                            <p id="parrafoEjemplo">Párrafo 1</p>
+                            <p id="parrafoEjemplo">Párrafo 2</p>
+                        </div>
+
+                        <h4>Selector de clase</h4>
+                        <p>Con este selector podemos hacer referencia a todos los elementos que tengan un nombre de clase (<span class="cursiva">class</span>) concreto.</p>
+                        <div class="example" id="ejemplocapas">
+                            <p>Clica cualquier capa ;)</p>
+                            <div class="capa1"><p>class='capa1'</p></div>
+                            <div class="capa2"><p>class='capa2'</p></div>
+                            <div class="capa1"><p>class='capa1'</p></div>
+                            <div class="capa2"><p>class='capa2'</p></div>
+                            <input id="restartej2" type="button" name="restart" value="Apagar cajas">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>María del Mar Fernández Bonillo</p>
+        </div>
+    </div>
 </body>
 </html>
