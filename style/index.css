@@ -6,6 +6,7 @@ body{
 #all {
     font-family: 'Lato', sans-serif;
     float: left;
+    width: 100%;
 }
 
 #header{
@@ -50,7 +51,7 @@ body{
 }
 
 #content {
-    /*border: 1px solid black;*/
+    border: 1px solid black;
     width: 80%;
     margin-left: 10%;
     float: left;
@@ -72,6 +73,20 @@ body{
     font-size: larger;
 }
 
+#flechas {
+    float: left;
+    width: 100%;
+    margin-top: 4%;
+}
+
+#flechaderecha {
+    float: right
+}
+
+.flecha:hover {
+    cursor: pointer;
+}
+
 .text {
     float: left;
     width: 90%;
@@ -83,13 +98,43 @@ body{
 .subtext {
     float: left;
     margin-left: 3%;
+    width: 97%;
+    max-width: 97%;
+    /*border: 1px solid black;*/
 }
 
 .example {
+    float: left;
     border: 2px solid #A3E16F;
     background-color: #C1EE9C;
     border-radius: 20px;
     padding-left: 3%;
+    width: 97%;
+}
+
+input[type='button']{
+    border: 2px solid #A47EE5;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-right: 1.5%;
+    padding: 10px 20px;
+    font-size: large;
+    transition-duration: 0.2s;
+}
+
+input[type='button']:hover {
+    background-color: #CEB8F5;
+    color: white;
+}
+
+.codebutton {
+    float: right;
+    margin-bottom: 1.5%;
+}
+
+.restartbutton, .seecode {
+    float: right;
+    margin-top: 8%;
 }
 
 .literal {
@@ -100,4 +145,8 @@ body{
 
 .cursiva {
     font-style: italic;
+}
+
+.negrita {
+    font-weight: bold;
 }

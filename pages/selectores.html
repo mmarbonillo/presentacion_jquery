@@ -11,28 +11,7 @@
     <link rel="stylesheet" href="../style/selectores.css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        $().ready(function(){
-            //EJEMPLO 1
-            $('#parrafoEjemplo').click(function(){
-                alert('Has pinchado el párrafo');
-            });
-
-            //EJEMPLO 2
-            $('.capa1').click(function(){
-                $('.capa2').css('background-color', 'unset');
-                $('.capa1').css('background-color', 'red');
-            });
-            $('.capa2').click(function(){
-                $('.capa1').css('background-color', 'unset');
-                $('.capa2').css('background-color', 'blue');
-            });
-            $('#restartej2').click(function(){
-                $('.capa1').css('background-color', 'unset');
-                $('.capa2').css('background-color', 'unset');
-            })
-        });
-    </script>
+    <script type="text/javascript" src="../javascript/selectores.js"></script>
 </head>
 <body>
     <div id="all">
@@ -49,7 +28,7 @@
             </div>
         </div>
         <div id="content">
-            <div id="pag1">
+            <div id="pag1" style="display: block;">
                 <h1>¿Qué es un selector?</h1>
                 <div class="text">
                     <p>Los selectores son la forma en jQuery de seleccionar los elementos de una página.</p>
@@ -82,9 +61,10 @@
                         <div class="example">
                             <PRE>//Ambos tienen id="parrafoEjemplo"</PRE>
                             <p id="parrafoEjemplo">Párrafo 1</p>
-                            <p id="parrafoEjemplo">Párrafo 2</p>
+                            <p id="parrafoEjemplo" style="display: inline;">Párrafo 2</p>
+                            <input class="codebutton" type="button" value="Ver código">
                         </div>
-
+                        <div style="clear: both;"></div>
                         <h4>Selector de clase</h4>
                         <p>Con este selector podemos hacer referencia a todos los elementos que tengan un nombre de clase (<span class="cursiva">class</span>) concreto.</p>
                         <div class="example" id="ejemplocapas">
@@ -93,10 +73,207 @@
                             <div class="capa2"><p>class='capa2'</p></div>
                             <div class="capa1"><p>class='capa1'</p></div>
                             <div class="capa2"><p>class='capa2'</p></div>
-                            <input id="restartej2" type="button" name="restart" value="Apagar cajas">
+                            <input class="seecode" type="button" value="Ver código">
+                            <input id="restartej2" class="restartbutton" type="button" name="restart" value="Apagar cajas">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>Concatenar selectores</h4>
+                        <p>Al igual que en CSS, podemos concatenar selectores usando comas para que cierta acción de ejecute en distintos elementos.</p>
+                        <div class="example" id="ejemplocapas">
+                            <p>Clica cualquier capa ;)</p>
+                            <div class="clase1"><p>class='clase1'</p></div>
+                            <div class="clase2"><p>class='clase2'</p></div>
+                            <div class="clase3"><p>class='clase3'</p></div>
+                            <div class="clase4"><p>class='clase4'</p></div>
+                            <input class="seecode" type="button" value="Ver código">
+                            <input id="restartej3" class="restartbutton" type="button" name="restart" value="Apagar cajas">
+                        </div>
+                        <div style="clear: both;"></div>
+
+                        <h4>Selector asterisco</h4>
+                        <p>Sirve para seleccionar <span class="negrita">todos</span> los elementos de la página.</p>
+                        <input type="button" value="Poner borde a todo">
+                        <input type="button" value="Quitar borde">
+                        <input type="button" value="Ver código">
+                    </div>
+                </div>
+            </div>
+
+            <div id="pag2">
+                <h1>Tipos de Selectores</h1>
+                <div class="text">
+                    <h3>Selectores de Hijos</h3>
+                    <div class="subtext">
+                        <h4>:first-child</h4>
+                        <p>Selecciona todos los elementos que son <span class="negrita">el primer hijo de su padre</span>.</p>
+                        <div class="example" id="example4">
+                            <div id="ex4capa1">
+                                <p>Primer hijo</p>
+                                <p>Segundo hijo</p>
+                                <div id="ex4capa2">
+                                    <p>Primer hijo</p>
+                                    <p>Segundo hijo</p>
+                                    <div id="ex4capa3">
+                                        <p>Primer hijo</p>
+                                        <p>Segundo hijo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example4button" value="Ver código">
+                            <input id="example4reset" type="button" class="example4button" value="Reset">
+                            <input id="firstchildex4" type="button" class="example4button" value="Primer hijo">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:first-of-type</h4>
+                        <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que son los primeros tipo <span class="cursiva">x</span> de su padre.</p>
+                        <div class="example" id="example5">
+                            <div id="ex5capa1">
+                                <p>Primer elemento p</p>
+                                <a href="#">Primer elemento a</a><br>
+                                <a href="#">Segundo elemento a</a>
+                                <div id="ex5capa2">
+                                    <a href="#">Primer elemento a</a>
+                                    <p>Primer elemento p</p>
+                                    <p>Segunto elemento p</p>
+                                    <div id="ex5capa3">
+                                        <p>Primer elemento p</p>
+                                        <p>Segunto elemento p</p>
+                                        <a href="#">Primer elemento a</a><br>
+                                        <a href="#">Segundo elemento a</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example5button" value="Ver código">
+                            <input id="example5reset" class="example5button" type="button"  value="Reset">
+                            <input id="firstchildAex5" class="example5button" type="button"  value="Primer hijo A">
+                            <input id="firstchildPex5" class="example5button" type="button"  value="Primer hijo P">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:last-child</h4>
+                        <p>Selecciona todos los elementos que son <span class="negrita">el último hijo de su padre</span>.</p>
+                        <div class="example" id="example6">
+                            <div id="ex6capa1">
+                                <p>Primer hijo</p>
+                                <p>Segundo hijo</p>
+                                <div id="ex6capa2">
+                                    <p>Primer hijo</p>
+                                    <p>Segundo hijo</p>
+                                    <div id="ex6capa3">
+                                        <p>Primer hijo</p>
+                                        <p>Segundo hijo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example6button" value="Ver código">
+                            <input id="example6reset" type="button" class="example6button" value="Reset">
+                            <input id="lastchildex6" type="button" class="example6button" value="Último hijo">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:last-of-type</h4>
+                        <p>Selecciona los elementos de tipo <span class="cursiva">x</span> que que son los últimos tipo <span class="cursiva">x</span> de su padre.</p>
+                        <div class="example" id="example7">
+                            <div id="ex7capa1">
+                                <p>Primer elemento p</p>
+                                <a href="#">Primer elemento a</a><br>
+                                <a href="#">Segundo elemento a</a>
+                                <div id="ex7capa2">
+                                    <a href="#">Primer elemento a</a>
+                                    <p>Primer elemento p</p>
+                                    <p>Segunto elemento p</p>
+                                    <div id="ex7capa3">
+                                        <p>Primer elemento p</p>
+                                        <p>Segunto elemento p</p>
+                                        <a href="#">Primer elemento a</a><br>
+                                        <a href="#">Segundo elemento a</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example7button" value="Ver código">
+                            <input id="example7reset" class="example7button" type="button"  value="Reset">
+                            <input id="lastchildAex7" class="example7button" type="button"  value="Último hijo A">
+                            <input id="lastchildPex7" class="example7button" type="button"  value="Último hijo P">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:nth-child(n)</h4>
+                        <p>Selecciona cada elemento <span class="cursiva">x</span> que es el <span class="cursiva">n</span> hijo de su padre.</p>
+                        <div class="example" id="example8">
+                            <div id="ex8capa1">
+                                <p>Primer elemento</p>
+                                <p>Segundo elemento</p>
+                                <p>Tercer elemento</p>
+                                <div id="ex8capa2">
+                                    <p>Primer elemento</p>
+                                    <p>Segundo elemento</p>
+                                    <p>Tercer elemento</p>
+                                    <div id="ex8capa3">
+                                        <p>Primer elemento</p>
+                                        <p>Segunto elemento</p>
+                                        <p>Tercer elemento</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example8button" value="Ver código">
+                            <input id="example8reset" class="example8button" type="button"  value="Reset">
+                            <input id="ex8button" class="example8button" type="button"  value="Segundo hijo">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:nth-last-child(n)</h4>
+                        <p>Selecciona los elementos <span class="cursiva">x</span> que son el hijo número <span class="cursiva">n</span> de su padre 
+                            contando desde el último hijo independientemente de su tipo.</p>
+                        <div class="example" id="example9">
+                            <div id="ex9capa1">
+                                <p>Primer elemento</p>
+                                <p>Segundo elemento</p>
+                                <p>Tercer elemento</p>
+                                <div id="ex9capa2">
+                                    <p>Primer elemento</p>
+                                    <p>Segundo elemento</p>
+                                    <p>Tercer elemento</p>
+                                    <div id="ex9capa3">
+                                        <p>Primer elemento</p>
+                                        <p>Segunto elemento</p>
+                                        <p>Tercer elemento</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example9button" value="Ver código">
+                            <input id="example9reset" class="example9button" type="button"  value="Reset">
+                            <input id="ex9button2" class="example9button" type="button"  value=":nth-last-child(3)">
+                            <input id="ex9button1" class="example9button" type="button"  value=":nth-last-child(2)">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:nth-last-of-type</h4>
+                        <p>Selecciona los elementos <span class="cursiva">x</span> que son el hijo número <span class="cursiva">n</span> de su padre 
+                            contando desde el último hijo.</p>
+                        <div class="example" id="example10">
+                            <div id="ex10capa1">
+                                <p>Primer elemento p</p>
+                                <a href="#">Primer elemento a</a><br>
+                                <a href="#">Segundo elemento a</a>
+                                <div id="ex10capa2">
+                                    <a href="#">Primer elemento a</a>
+                                    <p>Primer elemento p</p>
+                                    <p>Segunto elemento p</p>
+                                    <div id="ex10capa3">
+                                        <p>Primer elem p</p>
+                                        <p>Segunto elem p</p>
+                                        <a href="#">Primer elem a</a><br>
+                                        <a href="#">Segundo elem a</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example10button" value="Ver código">
+                            <input id="example10reset" class="example10button" type="button"  value="Reset">
+                            <input id="ex10button2" class="example10button" type="button"  value="a:nth-last-of-type(2)">
+                            <input id="ex10button1" class="example10button" type="button"  value="p:nth-last-of-type(2)">
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div id="flechas">
+                <img id="flechaizquierda" class="flecha" src="../images/izquierda.png" alt="flechaizquierda" width="70px">
+                <img id="flechaderecha" class="flecha" src="../images/derecha.png" alt="flechaderecha" width="70px">
             </div>
         </div>
         <div id="footer">

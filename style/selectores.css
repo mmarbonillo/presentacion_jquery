@@ -1,4 +1,4 @@
-.capa1, .capa2{
+.capa1, .capa2, .clase1, .clase2, .clase3, .clase4{
     text-align: center;
     width: 120px;
     height: 110px;
@@ -9,6 +9,66 @@
 
 #ejemplocapas {
     float: left;
-    width: 100%;
+    width: 97%;
     height: 200px;
 }
+
+#pag2, #pag1 {
+    float: left;
+    width: 100%;
+}
+
+#ex4capa1, #ex5capa1, #ex6capa1, #ex7capa1, #ex8capa1, #ex9capa1 {
+    float: left;
+    border: 2px solid black;
+    width: 32%;
+    height: 36%;
+    margin: 2% 0;
+    padding-left: 1%;
+}
+
+#ex10capa1 {
+    float: left;
+    border: 2px solid black;
+    width: 29%;
+    height: 36%;
+    margin: 2% 0;
+    padding-left: 1%;
+}
+
+#ex4capa2, #ex4capa3, #ex5capa2, #ex5capa3, #ex6capa2, #ex6capa3,
+ #ex7capa2, #ex7capa3, #ex8capa2, #ex8capa3, #ex9capa2, #ex9capa3, 
+ #ex10capa2, #ex10capa3 {
+    float: left;
+    border: 2px solid black;
+    width: 70%;
+    height: 50%;
+    margin: 2% 2%;
+    padding-left: 1%
+}
+
+#example8, #example6, #example4, #example9 {
+    line-height: 12px;
+}
+
+.example4button, .example6button {
+    float: right;
+    margin-top: 27%;
+}
+
+.example5button, .example7button {
+    float: right;
+    margin-top: 41%;
+}
+
+.example8button, .example9button {
+    float: right;
+    margin-top: 36%;
+}
+
+.example10button {
+    float: right;
+    margin-top: 40%;
+}
+
+
