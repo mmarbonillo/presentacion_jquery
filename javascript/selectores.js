@@ -101,5 +101,74 @@ $().ready(function(){
     $('#example10reset').click(function(){
         $('#example10 p:nth-last-of-type(2), #example10 a:nth-last-of-type(2)').css("background-color", "unset");
     });
+
+    //EJEMPLO 11
+    $('#ex11button1').click(function(){
+        $('#example11 a:only-child').css("background-color", "unset");
+        $('#example11 p:only-child').css("background-color", "yellow");
+    });
+    $('#ex11button2').click(function(){
+        $('#example11 p:only-child').css("background-color", "unset");
+        $('#example11 a:only-child').css("background-color", "yellow");
+    });
+    $('#example11reset').click(function(){
+        $('#example11 a:only-child').css("background-color", "unset");
+        $('#example11 p:only-child').css("background-color", "unset");
+    });
+
+    //EJEMPLO 12
+    $('#ex12button1').click(function(){
+        $('#example12 a:only-of-type').css("background-color", "unset");
+        $('#example12 p:only-of-type').css("background-color", "yellow");
+    });
+    $('#ex12button2').click(function(){
+        $('#example12 p:only-of-type').css("background-color", "unset");
+        $('#example12 a:only-of-type').css("background-color", "yellow");
+    });
+    $('#example12reset').click(function(){
+        $('#example12 a:only-of-type').css("background-color", "unset");
+        $('#example12 p:only-of-type').css("background-color", "unset");
+    });
+
+    //EJEMPLO 13
+    $('#ex13button1').click(function(){
+        $('#example13 p:contains(de)').css("background-color", "unset");
+        $('#example13 p:contains(hidalgo)').css("background-color", "yellow");
+    });
+    $('#ex13button2').click(function(){
+        $('#example13 p:contains(de)').css("background-color", "red");
+    });
+    $('#example13reset').click(function(){
+        $('#example13 > p').css("background-color", "unset");
+    });
+
+    //EJEMPLO 14
+    $('#ex14button').click(function(){
+        $('#example14 div:empty()').css("background-color", "red");
+    });
+    $('#example14reset').click(function(){
+        $('#example14 div:empty()').css("background-color", "unset");
+    });
+
+    //EJEMPLO 15
+    $('#ex15button1').click(function(){
+        $('#example15 div:has(div)').css("border", "2px solid black");
+        $('#example15 div:has(p)').css("border", "3px solid red");
+    });
+    $('#ex15button2').click(function(){
+        $('#example15 div:has(p)').css("border", "2px solid black");
+        $('#example15 div:has(div)').css("border", "3px solid red");
+    });
+    $('#example15reset').click(function(){
+        $('#example15 > div').css("border", "2px solid black");
+    });
+
+    //EJEMPLO 16
+    $('#ex16button').click(function(){
+        $('#example16 td:parent').css('background-color', 'yellow');
+    });
+    $('#example16reset').click(function(){
+        $('#example16 td:parent').css('background-color', 'unset');
+    });
     
 });

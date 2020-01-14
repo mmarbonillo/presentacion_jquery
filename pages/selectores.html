@@ -267,6 +267,125 @@
                             <input id="ex10button2" class="example10button" type="button"  value="a:nth-last-of-type(2)">
                             <input id="ex10button1" class="example10button" type="button"  value="p:nth-last-of-type(2)">
                         </div>
+                        <div style="clear: both;"></div>
+                        <h4>:only-child</h4>
+                        <p>Selecciona cada elemento <span class="cursiva">x</span> que es <span class="negrita">el único hijo de su padre</span>.</p>
+                        <div class="example" id="example11">
+                            <div id="ex11capa1">
+                                <p>Primer elemento p</p>
+                                <a href="#">Primer elemento a</a>
+                                <div id="ex11capa2">
+                                    <a href="#">Primer elemento a</a>
+                                    <div id="ex11capa3">
+                                        <p>Primer elem p</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example11button" value="Ver código">
+                            <input id="example11reset" class="example11button" type="button"  value="Reset">
+                            <input id="ex11button2" class="example11button" type="button"  value="a:only-child">
+                            <input id="ex11button1" class="example11button" type="button"  value="p:only-child">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>:only-of-type</h4>
+                        <p>Selecciona casa elemento <span class="cursiva">x</span> que sea el único hijo <span class="negrita">de ese tipo concreto</span> de su padre.</p>
+                        <div class="example" id="example12">
+                            <div id="ex12capa1">
+                                <p>Primer elemento p</p>
+                                <a href="#">Primer elemento a</a><br>
+                                <a href="#">Segundo elemento a</a>
+                                <div id="ex12capa2">
+                                    <a href="#">Primer elemento a</a>
+                                    <p>Primer elemento p</p>
+                                    <p>Segunto elemento p</p>
+                                    <div id="ex12capa3">
+                                        <p>Primer elem p</p>
+                                        <a href="#">Primer elem a</a><br>
+                                        <a href="#">Segundo elem a</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example12button" value="Ver código">
+                            <input id="example12reset" class="example12button" type="button"  value="Reset">
+                            <input id="ex12button2" class="example12button" type="button"  value="a:only-of-type">
+                            <input id="ex12button1" class="example12button" type="button"  value="p:only-of-type">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+
+            <div id="pag3">
+                <h1>Tipos de Selectores</h1>
+                <div class="text">
+                    <h3>Selectores de Contenido</h3>
+                    <div class="subtext">
+                        <h4>x:contains(<span class="cursiva">text</span>)</h4>
+                        <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que contengan <span class="cursiva">text</span>.</p>
+                        <div class="example" id="example13">
+                            <p>En un lugar de la mancha</p>
+                            <p>De cuyo nombre no quiero acordarme</p>
+                            <p>No ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,</p>
+                            <p>Adarga antigua, rocín flaco y galgo corredo</p>
+                            <input type="button" class="example13button" value="Ver código">
+                            <input id="example13reset" class="example13button" type="button"  value="Reset">
+                            <input id="ex13button2" class="example13button" type="button"  value="De">
+                            <input id="ex13button1" class="example13button" type="button"  value="Hidalgo">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>x:empty</h4>
+                        <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que no tengan hijos o texto.</p>
+                        <div class="example" id="example14">
+                            <div id="ex14capa1">
+                                <div id="ex14capa2">
+                                    <div id="ex14capa3"></div>
+                                </div>
+                            </div>
+                            <input type="button" class="example14button" value="Ver código">
+                            <input id="example14reset" class="example14button" type="button"  value="Reset">
+                            <input id="ex14button" class="example14button" type="button"  value="div:empty()">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>x:has(y)</h4>
+                        <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que tienen dentro (hija o nieta) alguna etiqueta <span class="cursiva">y</span>.</p>
+                        <div class="example" id="example15">
+                            <div id="ex15capa1">
+                                <p>Párrafo</p>
+                                <div id="ex15capa2">
+                                    <div id="ex15capa3">
+                                        <p>Párrafo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="button" class="example15button" value="Ver código">
+                            <input id="example15reset" class="example15button" type="button"  value="Reset">
+                            <input id="ex15button2" class="example15button" type="button"  value="div:has(div)">
+                            <input id="ex15button1" class="example15button" type="button"  value="div:has(p)">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>x:parent</h4>
+                        <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que tienen hijos <span class="negrita">incluyendo el texto</span>.</p>
+                        <div class="example" id="example16">
+                            <table border='1'>
+                                <tr>
+                                    <td>hola</td>
+                                    <td></td>
+                                    <td>a</td>
+                                    <td></td>
+                                    <td>todos</td>
+                                </tr>
+                                <tr>
+                                    <td>espero</td>
+                                    <td>no</td>
+                                    <td></td>
+                                    <td>estar</td>
+                                    <td>aburiendoos</td>
+                                </tr>
+                            </table>
+                            <input type="button" class="example16button" value="Ver código">
+                            <input id="example16reset" class="example16button" type="button"  value="Reset">
+                            <input id="ex16button" class="example16button" type="button"  value="td:parent">
+                        </div>
                     </div>
                 </div>
             </div>

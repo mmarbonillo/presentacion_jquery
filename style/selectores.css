@@ -13,7 +13,7 @@
     height: 200px;
 }
 
-#pag2, #pag1 {
+#pag2, #pag1, #pag3 {
     float: left;
     width: 100%;
 }
@@ -27,7 +27,7 @@
     padding-left: 1%;
 }
 
-#ex10capa1 {
+#ex10capa1, #ex11capa1, #ex12capa1 {
     float: left;
     border: 2px solid black;
     width: 29%;
@@ -36,9 +36,19 @@
     padding-left: 1%;
 }
 
+#ex14capa1, #ex15capa1{
+    float: left;
+    border: 2px solid black;
+    width: 29%;
+    height: 250px;
+    margin: 2% 0;
+    padding-left: 1%;
+}
+
 #ex4capa2, #ex4capa3, #ex5capa2, #ex5capa3, #ex6capa2, #ex6capa3,
  #ex7capa2, #ex7capa3, #ex8capa2, #ex8capa3, #ex9capa2, #ex9capa3, 
- #ex10capa2, #ex10capa3 {
+ #ex10capa2, #ex10capa3, #ex11capa2, #ex11capa3, #ex12capa2, #ex12capa3, 
+ #ex14capa2, #ex14capa3, #ex15capa2, #ex15capa3 {
     float: left;
     border: 2px solid black;
     width: 70%;
@@ -71,4 +81,43 @@
     margin-top: 40%;
 }
 
+.example11button {
+    float: right;
+    margin-top: 18%;
+}
 
+.example12button {
+    float: right;
+    margin-top: 36%;
+}
+
+#example13 {
+    padding-bottom: 1%;
+}
+
+.example13button {
+    float: right;
+}
+
+.example14button, .example15button {
+    float: right;
+    margin-top: 24%;
+}
+
+.example16button {
+    float: right;
+    margin-bottom: 1%
+}
+
+#example16 {
+    padding-top: 2%;
+}
+
+table{
+    height: 100px;
+}
+
+td{
+    text-align: center;
+    width: 50px;
+}
