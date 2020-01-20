@@ -51,7 +51,7 @@ body{
 }
 
 #content {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     width: 80%;
     margin-left: 10%;
     float: left;
@@ -110,6 +110,7 @@ body{
     border-radius: 20px;
     padding-left: 3%;
     width: 97%;
+    margin-bottom: 1%;
 }
 
 input[type='button']{
@@ -121,6 +122,10 @@ input[type='button']{
     font-size: large;
     transition-duration: 0.2s;
 }
+
+input[type='button']:focus {
+    outline: none;
+  }
 
 input[type='button']:hover {
     background-color: #CEB8F5;
@@ -138,6 +143,8 @@ input[type='button']:hover {
 }
 
 .literal {
+    float: left;
+    width: 100%;
     border: 2px solid #868686;
     background-color: #DEDEDE;
     border-radius: 20px;
@@ -149,4 +156,9 @@ input[type='button']:hover {
 
 .negrita {
     font-weight: bold;
+}
+
+.closeCode{
+    float: right;
+    margin-bottom: 1%;
 }

@@ -1,4 +1,38 @@
 $().ready(function(){
+    //FLECHAS
+    $('#flechaizquierda').click(function(){
+        var pagina = parseInt($("#pagina").val());
+        if(pagina - 1 == 0){
+            pagina = 5;
+        }else{
+            pagina -= 1;
+        }
+        for(i = 1; i <= 5; i++){
+            if(i != pagina){
+                $('#pag'+i).css('display', 'none');
+            }else{
+                $('#pag'+i).css('display', 'block');
+                $("#pagina").val(i + "");
+            }
+        }
+    });
+    $('#flechaderecha').click(function(){
+        var pagina = parseInt($("#pagina").val());
+        if(pagina + 1 == 6){
+            pagina = 1;
+        }else{
+            pagina += 1;
+        }
+        for(i = 1; i <= 5; i++){
+            if(i != pagina){
+                $('#pag'+i).css('display', 'none');
+            }else{
+                $('#pag'+i).css('display', 'block');
+                $("#pagina").val(i + "");
+            }
+        }
+    });
+
     //EJEMPLO 1
     $('#parrafoEjemplo').click(function(){
         alert('Has pinchado el párrafo');
@@ -26,6 +60,14 @@ $().ready(function(){
     });
     $('#restartej3').click(function(){
         $('.clase1, .clase2, .clase3, .clase4').css('background-color', 'unset');
+    });
+
+    //EJEMPLO *
+    $('#exampleall').click(function(){
+        $('*').css('border', '1px solid black');
+    });
+    $('#exampleallreset').click(function(){
+        $('*').css('border', 'unset');
     });
 
     //EJEMPLO 4
@@ -169,6 +211,103 @@ $().ready(function(){
     });
     $('#example16reset').click(function(){
         $('#example16 td:parent').css('background-color', 'unset');
+    });
+
+    //EJEMPLO 17
+    $('#example17reset').click(function(){
+        $('#example17 *').css('background-color', 'unset');
+        
+    });
+    $('#ex17button1').click(function(){
+        $('#example17 :button').css('background-color', 'yellow');
+    });
+    $('#ex17button2').click(function(){
+        $('#example17result').empty();
+        var total = $('#example17 :checkbox').length;
+        $('#example17result').append("<p id='numcheckbox'>Número total de checkbox: "+ total +"</p>");
+    });
+    $('#ex17button3').click(function(){
+        $('#example17result').empty();
+        var totalChecked = $('#example17 :checked');
+        var totalCheckbox = $('#example17 :checkbox');
+        var unselected = totalCheckbox.length - totalChecked.length;
+        $('#example17result').append("<p>Número de checkbox seleccionados: "+ totalChecked.length +"</p>");
+        $('#example17result').append("<p>Número de checkbox sin seleccionar: "+ unselected +"</p>");
+        for(i = 0; i < totalChecked.length; i++){
+            var turno = totalChecked[i];
+            $('#example17result').append("<p>"+ totalChecked[i].value +"</p>");
+        }
+    });
+    $('#ex17button4').click(function(){
+        $('#example17 :disabled').css('background-color', 'yellow');
+    });
+    $('#ex17button5').click(function(){
+        $('#example17 :file').css('background-color', 'yellow');
+    });
+    $('#ex17button6').click(function(){
+        $('#example17result').empty();
+        var selected = $('#example17 :selected');
+        for(i = 0; i < selected.length; i++){
+            $('#example17result').append("<p>" +  selected[i].value + "</p>")
+        }
+    });
+    $('#ex17button7').click(function(){
+        $('#example17 :submit').css('background-color', 'yellow');
+    });
+    $('#ex17button8').click(function(){
+        $('#example17 :text').css('background-color', 'yellow');
+    });
+
+    //EJEMPLO 18
+    $('#ex18button1').click(function(){
+        $('#ex18capa1 *').css('border', '3px solid yellow');
+    });
+    $('#ex18button2').click(function(){
+        $('#ex18capa1 div').css('border', '2px solid black');
+        $('#ex18capa1 p').css('border', 'unset');
+        $('#ex18capa1 div *').css('border', '3px solid blue');
+    });
+    $('#example18reset').click(function(){
+        $('#ex18capa1 div').css('border', '2px solid black');
+        $('#ex18capa1 p').css('border', 'unset');
+    });
+
+    //EJEMPLO 19
+    $('#ex19button1').click(function(){
+        $('#ex19capa1 > *').css('border', '3px solid yellow');
+    });
+    $('#ex19button2').click(function(){
+        $('#ex19capa1 > div').css('border', '2px solid black');
+        $('#ex19capa1 > p').css('border', 'unset');
+        $('#ex19capa2 > *').css('border', '3px solid blue');
+    });
+    $('#example19reset').click(function(){
+        $('#ex19capa1 div').css('border', '2px solid black');
+        $('#ex19capa1 p').css('border', 'unset');
+    });
+
+    //EJEMPLO 20
+    $('#ex20button1').click(function(){
+        $('h3.ex20h3 + p').css('background-color', 'yellow');
+    });
+    $('#ex20button2').click(function(){
+        $('h3.ex20h3 + p').css('background-color', 'unset');
+        $('h3.ex20h3 + a').css('background-color', 'yellow');
+    });
+    $('#example20reset').click(function(){
+        $('#example20 > *').css('background-color', 'unset');
+    });
+
+    //EJEMPLO 21
+    $('#ex21button1').click(function(){
+        $('h3.ex21h3 ~ p').css('background-color', 'yellow');
+    });
+    $('#ex21button2').click(function(){
+        $('h3.ex21h3 ~ p').css('background-color', 'unset');
+        $('h3.ex21h3 ~ a').css('background-color', 'yellow');
+    });
+    $('#example21reset').click(function(){
+        $('#example21 > *').css('background-color', 'unset');
     });
     
 });

@@ -13,7 +13,7 @@
     height: 200px;
 }
 
-#pag2, #pag1, #pag3 {
+#pag2, #pag1, #pag3, #pag4 {
     float: left;
     width: 100%;
 }
@@ -45,10 +45,20 @@
     padding-left: 1%;
 }
 
+#ex18capa1, #ex19capa1{
+    float: left;
+    border: 2px solid black;
+    width: 52%;
+    height: 36%;
+    margin: 2% 0;
+    padding-left: 1%;
+}
+
 #ex4capa2, #ex4capa3, #ex5capa2, #ex5capa3, #ex6capa2, #ex6capa3,
  #ex7capa2, #ex7capa3, #ex8capa2, #ex8capa3, #ex9capa2, #ex9capa3, 
  #ex10capa2, #ex10capa3, #ex11capa2, #ex11capa3, #ex12capa2, #ex12capa3, 
- #ex14capa2, #ex14capa3, #ex15capa2, #ex15capa3 {
+ #ex14capa2, #ex14capa3, #ex15capa2, #ex15capa3, #ex18capa2, #ex18capa3,
+ #ex19capa2, #ex19capa3 {
     float: left;
     border: 2px solid black;
     width: 70%;
@@ -120,4 +130,27 @@ table{
 td{
     text-align: center;
     width: 50px;
+}
+
+#formleft, #formright, #example17result {
+    margin: 3% 0;
+    /*border: 1px solid black;*/
+    float: left;
+    width: 30%;
+}
+
+#example17buttons, #example18buttons, #example19buttons {
+    /*border: 1px solid black;*/
+    float: left;
+    width: 100%;
+}
+
+.example17button, .example18button, .example19button {
+    float: left;
+    margin-bottom: 1.5%;
+}
+
+.example20button, .example21button {
+    float: right;
+    margin-bottom: 1%;
 }

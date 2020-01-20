@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="../style/selectores.css">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="../javascript/selectores.js"></script>
+    <script type="text/javascript" src="../javascript/codebuttons.js"></script>
 </head>
 <body>
     <div id="all">
@@ -45,7 +46,7 @@
     $('p') //Selecciona todas las etiquetas de párrafo de la página
 </PRE>
                         </div>
-
+                        <div style="clear: both;"></div>
                         <h4>Selector de identificador</h4>
                         <p>Sirve para acceder a un elemento de la página que tenga un identificador (<span class="cursiva">id</span>) específico.
                             Para usarlo simplemente escribimos <span class="cursiva">#</span> y el nombre del identificador.
@@ -55,6 +56,7 @@
     $('#principal') //Estaríamos accediendo al elemento de id='principal'
 </PRE>
                         </div>
+                        <div style="clear: both;"></div>
                         <p>Si por equivocación pusiesemos el mismo id a más de un elemento de la página, solo tendría en cuenta el primero que encuentre.
                             Pulsa cualquiera de estos dos párrafos para verlo:
                         </p>
@@ -62,7 +64,23 @@
                             <PRE>//Ambos tienen id="parrafoEjemplo"</PRE>
                             <p id="parrafoEjemplo">Párrafo 1</p>
                             <p id="parrafoEjemplo" style="display: inline;">Párrafo 2</p>
-                            <input class="codebutton" type="button" value="Ver código">
+                            <input id="example1button" class="codebutton" type="button" value="Ver código">
+                        </div>
+                        <div class="literal" id="literalexample1" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#parrafoEjemplo').click(function(){
+                alert('Has pinchado el párrafo');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p id="parrafoEjemplo"&gt; Párrafo 1 &lt;/p&gt;
+        &lt;p id="parrafoEjemplo"&gt; Párrafo 2 &lt;/p&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample1" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>Selector de clase</h4>
@@ -73,8 +91,35 @@
                             <div class="capa2"><p>class='capa2'</p></div>
                             <div class="capa1"><p>class='capa1'</p></div>
                             <div class="capa2"><p>class='capa2'</p></div>
-                            <input class="seecode" type="button" value="Ver código">
+                            <input id="example2button" class="seecode" type="button" value="Ver código">
                             <input id="restartej2" class="restartbutton" type="button" name="restart" value="Apagar cajas">
+                        </div>
+                        <div class="literal" id="literalexample2" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+        $('.capa1').click(function(){
+            $('.capa2').css('background-color', 'unset');
+            $('.capa1').css('background-color', 'red');
+        });
+        $('.capa2').click(function(){
+            $('.capa1').css('background-color', 'unset');
+            $('.capa2').css('background-color', 'blue');
+        });
+        $('#restartej2').click(function(){
+            $('.capa1, .capa2').css('background-color', 'unset');
+        });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Clica cualquier capa ;)&lt;/p&gt;
+        &lt;div class="capa1"&gt;&lt;p&gt;class='capa1'&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="capa2"&gt;&lt;p&gt;class='capa2'&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="capa1"&gt;&lt;p&gt;class='capa1'&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="capa2"&gt;&lt;p&gt;class='capa2'&lt;/p&gt;&lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample2" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>Concatenar selectores</h4>
@@ -85,21 +130,66 @@
                             <div class="clase2"><p>class='clase2'</p></div>
                             <div class="clase3"><p>class='clase3'</p></div>
                             <div class="clase4"><p>class='clase4'</p></div>
-                            <input class="seecode" type="button" value="Ver código">
+                            <input id="example3button" class="seecode" type="button" value="Ver código">
                             <input id="restartej3" class="restartbutton" type="button" name="restart" value="Apagar cajas">
                         </div>
+                        <div class="literal" id="literalexample3" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('.clase1, .clase3').click(function(){
+                $('.clase1, .clase3').css('background-color', 'red');
+            });
+            $('.clase2, .clase4').click(function(){
+                $('.clase2, .clase4').css('background-color', 'blue');
+            });
+            $('#restartej3').click(function(){
+                $('.clase1, .clase2, .clase3, .clase4').css('background-color', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Clica cualquier capa ;)&lt;/p&gt;
+        &lt;div class="clase1"&gt;&lt;p&gt;class='clase1'&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="clase2"&gt;&lt;p&gt;class='clase2'&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="clase3"&gt;&lt;p&gt;class='clase3'&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="clase4"&gt;&lt;p&gt;class='clase4'&lt;/p&gt;&lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample3" class="closeCode" type="button" value="Cerrar">
+                        </div>
                         <div style="clear: both;"></div>
-
+                        
                         <h4>Selector asterisco</h4>
                         <p>Sirve para seleccionar <span class="negrita">todos</span> los elementos de la página.</p>
-                        <input type="button" value="Poner borde a todo">
-                        <input type="button" value="Quitar borde">
-                        <input type="button" value="Ver código">
+                        <input id="exampleall" type="button" value="Poner borde a todo">
+                        <input id="exampleallreset" type="button" value="Quitar borde">
+                        <input id="exampleallcode" type="button" value="Ver código">
+                        <div class="literal" id="literalexampleall" style="display: none; margin-top: 1%;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#exampleall').click(function(){
+                $('*').css('border', '1px solid black');
+            });
+            $('#exampleallreset').click(function(){
+                $('*').css('border', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input id="exampleall" type="button" value="Poner borde a todo"&gt;
+        &lt;input id="exampleallreset" type="button" value="Quitar borde"&gt;
+        &lt;input id="exampleallcode" type="button" value="Ver código"&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexampleall" class="closeCode" type="button" value="Cerrar">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div id="pag2">
+            <div id="pag2" style="display: none;">
                 <h1>Tipos de Selectores</h1>
                 <div class="text">
                     <h3>Selectores de Hijos</h3>
@@ -119,9 +209,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example4button" value="Ver código">
+                            <input id="example4button" type="button" class="example4button" value="Ver código">
                             <input id="example4reset" type="button" class="example4button" value="Reset">
                             <input id="firstchildex4" type="button" class="example4button" value="Primer hijo">
+                        </div>
+                        <div class="literal" id="literalexample4" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#firstchildex4').click(function(){
+                $("#example4 p:first-child").css("background-color", "yellow");
+            });
+            $('#example4reset').click(function(){
+                $("#example4 p:first-child").css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex4capa1"&gt;
+            &lt;p&gt;Primer hijo&lt;/p&gt;
+            &lt;p&gt;Segundo hijo&lt;/p&gt;
+            &lt;div id="ex4capa2"&gt;
+                &lt;p&gt;Primer hijo&lt;/p&gt;
+                &lt;p&gt;Segundo hijo&lt;/p&gt;
+                &lt;div id="ex4capa3"&gt;
+                    &lt;p&gt;Primer hijo&lt;/p&gt;
+                    &lt;p&gt;Segundo hijo&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample4" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:first-of-type</h4>
@@ -143,10 +262,47 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example5button" value="Ver código">
+                            <input id="example5code" type="button" class="example5button" value="Ver código">
                             <input id="example5reset" class="example5button" type="button"  value="Reset">
                             <input id="firstchildAex5" class="example5button" type="button"  value="Primer hijo A">
                             <input id="firstchildPex5" class="example5button" type="button"  value="Primer hijo P">
+                        </div>
+                        <div class="literal" id="literalexample5" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#firstchildAex5').click(function(){
+                $('#example5 a:first-of-type').css("background-color", "yellow");
+            });
+            $('#firstchildPex5').click(function(){
+                $('#example5 p:first-of-type').css("background-color", "red");
+            });
+            $('#example5reset').click(function(){
+                $('#example5 a:first-of-type').css("background-color", "unset");
+                $('#example5 p:first-of-type').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex5capa1"&gt;
+            &lt;p&gt;Primer elemento p&lt;/p&gt;
+            &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;&lt;br&gt;
+            &lt;a href="#"&gt;Segundo elemento a&lt;/a&gt;
+            &lt;div id="ex5capa2"&gt;
+                &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;
+                &lt;p&gt;Primer elemento p&lt;/p&gt;
+                &lt;p&gt;Segunto elemento p&lt;/p&gt;
+                &lt;div id="ex5capa3"&gt;
+                    &lt;p&gt;Primer elemento p&lt;/p&gt;
+                    &lt;p&gt;Segunto elemento p&lt;/p&gt;
+                    &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;Segundo elemento a&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample5" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:last-child</h4>
@@ -164,9 +320,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example6button" value="Ver código">
+                            <input id="example6code" type="button" class="example6button" value="Ver código">
                             <input id="example6reset" type="button" class="example6button" value="Reset">
                             <input id="lastchildex6" type="button" class="example6button" value="Último hijo">
+                        </div>
+                        <div class="literal" id="literalexample6" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#lastchildex6').click(function(){
+                $('#example6 p:last-child').css("background-color", "yellow");
+            });
+            $('#example6reset').click(function(){
+                $('#example6 p:last-child').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex6capa1"&gt;
+            &lt;p&gt;Primer hijo&lt;/p&gt;
+            &lt;p&gt;Segundo hijo&lt;/p&gt;
+            &lt;div id="ex6capa2"&gt;
+                &lt;p&gt;Primer hijo&lt;/p&gt;
+                &lt;p&gt;Segundo hijo&lt;/p&gt;
+                &lt;div id="ex6capa3"&gt;
+                    &lt;p&gt;Primer hijo&lt;/p&gt;
+                    &lt;p&gt;Segundo hijo&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample6" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:last-of-type</h4>
@@ -188,10 +373,47 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example7button" value="Ver código">
+                            <input id="example7code" type="button" class="example7button" value="Ver código">
                             <input id="example7reset" class="example7button" type="button"  value="Reset">
                             <input id="lastchildAex7" class="example7button" type="button"  value="Último hijo A">
                             <input id="lastchildPex7" class="example7button" type="button"  value="Último hijo P">
+                        </div>
+                        <div class="literal" id="literalexample7" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#lastchildAex7').click(function(){
+                $('#example7 a:last-of-type').css("background-color", "yellow");
+            });
+            $('#lastchildPex7').click(function(){
+                $('#example7 p:last-of-type').css("background-color", "red");
+            });
+            $('#example7reset').click(function(){
+                $('#example7 a:last-of-type').css("background-color", "unset");
+                $('#example7 p:last-of-type').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex7capa1"&gt;
+            &lt;p&gt;Primer elemento p&lt;/p&gt;
+            &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;&lt;br&gt;
+            &lt;a href="#"&gt;Segundo elemento a&lt;/a&gt;
+            &lt;div id="ex7capa2"&gt;
+                &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;
+                &lt;p&gt;Primer elemento p&lt;/p&gt;
+                &lt;p&gt;Segunto elemento p&lt;/p&gt;
+                &lt;div id="ex7capa3"&gt;
+                    &lt;p&gt;Primer elemento p&lt;/p&gt;
+                    &lt;p&gt;Segunto elemento p&lt;/p&gt;
+                    &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;Segundo elemento a&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample7" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:nth-child(n)</h4>
@@ -212,9 +434,41 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example8button" value="Ver código">
+                            <input id="example8code" type="button" class="example8button" value="Ver código">
                             <input id="example8reset" class="example8button" type="button"  value="Reset">
                             <input id="ex8button" class="example8button" type="button"  value="Segundo hijo">
+                        </div>
+                        <div class="literal" id="literalexample8" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex8button').click(function(){
+                $('#example8 p:nth-child(2)').css("background-color", "yellow");
+            });
+            $('#example8reset').click(function(){
+                $('#example8 p:nth-child(2)').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex8capa1"&gt;
+            &lt;p&gt;Primer elemento&lt;/p&gt;
+            &lt;p&gt;Segundo elemento&lt;/p&gt;
+            &lt;p&gt;Tercer elemento&lt;/p&gt;
+            &lt;div id="ex8capa2"&gt;
+                &lt;p&gt;Primer elemento&lt;/p&gt;
+                &lt;p&gt;Segundo elemento&lt;/p&gt;
+                &lt;p&gt;Tercer elemento&lt;/p&gt;
+                &lt;div id="ex8capa3"&gt;
+                    &lt;p&gt;Primer elemento&lt;/p&gt;
+                    &lt;p&gt;Segunto elemento&lt;/p&gt;
+                    &lt;p&gt;Tercer elemento&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample8" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:nth-last-child(n)</h4>
@@ -236,10 +490,47 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example9button" value="Ver código">
+                            <input id="example9code" type="button" class="example9button" value="Ver código">
                             <input id="example9reset" class="example9button" type="button"  value="Reset">
                             <input id="ex9button2" class="example9button" type="button"  value=":nth-last-child(3)">
                             <input id="ex9button1" class="example9button" type="button"  value=":nth-last-child(2)">
+                        </div>
+                        <div class="literal" id="literalexample9" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex9button1').click(function(){
+                $('#example9 p:nth-last-child(3)').css("background-color", "unset");
+                $('#example9 p:nth-last-child(2)').css("background-color", "yellow");
+            });
+            $('#ex9button2').click(function(){
+                $('#example9 p:nth-last-child(2)').css("background-color", "unset");
+                $('#example9 p:nth-last-child(3)').css("background-color", "yellow");
+            });
+            $('#example9reset').click(function(){
+                $('#example9 p:nth-last-child(2), #example9 p:nth-last-child(3)').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex9capa1"&gt;
+            &lt;p&gt;Primer elemento&lt;/p&gt;
+            &lt;p&gt;Segundo elemento&lt;/p&gt;
+            &lt;p&gt;Tercer elemento&lt;/p&gt;
+            &lt;div id="ex9capa2"&gt;
+                &lt;p&gt;Primer elemento&lt;/p&gt;
+                &lt;p&gt;Segundo elemento&lt;/p&gt;
+                &lt;p&gt;Tercer elemento&lt;/p&gt;
+                &lt;div id="ex9capa3"&gt;
+                    &lt;p&gt;Primer elemento&lt;/p&gt;
+                    &lt;p&gt;Segunto elemento&lt;/p&gt;
+                    &lt;p&gt;Tercer elemento&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample9" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:nth-last-of-type</h4>
@@ -262,10 +553,48 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example10button" value="Ver código">
+                            <input id="example10code" type="button" class="example10button" value="Ver código">
                             <input id="example10reset" class="example10button" type="button"  value="Reset">
                             <input id="ex10button2" class="example10button" type="button"  value="a:nth-last-of-type(2)">
                             <input id="ex10button1" class="example10button" type="button"  value="p:nth-last-of-type(2)">
+                        </div>
+                        <div class="literal" id="literalexample10" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex10button1').click(function(){
+                $('#example10 a:nth-last-of-type(2)').css("background-color", "unset");
+                $('#example10 p:nth-last-of-type(2)').css("background-color", "yellow");
+            });
+            $('#ex10button2').click(function(){
+                $('#example10 p:nth-last-of-type(2)').css("background-color", "unset");
+                $('#example10 a:nth-last-of-type(2)').css("background-color", "yellow");
+            });
+            $('#example10reset').click(function(){
+                $('#example10 p:nth-last-of-type(2), #example10 a:nth-last-of-type(2)').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex10capa1"&gt;
+            &lt;p&gt;Primer elemento p&lt;/p&gt;
+            &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;&lt;br&gt;
+            &lt;a href="#"&gt;Segundo elemento a&lt;/a&gt;
+            &lt;div id="ex10capa2"&gt;
+                &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;
+                &lt;p&gt;Primer elemento p&lt;/p&gt;
+                &lt;p&gt;Segunto elemento p&lt;/p&gt;
+                &lt;div id="ex10capa3"&gt;
+                    &lt;p&gt;Primer elem p&lt;/p&gt;
+                    &lt;p&gt;Segunto elem p&lt;/p&gt;
+                    &lt;a href="#"&gt;Primer elem a&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;Segundo elem a&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample10" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:only-child</h4>
@@ -281,10 +610,43 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example11button" value="Ver código">
+                            <input id="example11code" type="button" class="example11button" value="Ver código">
                             <input id="example11reset" class="example11button" type="button"  value="Reset">
                             <input id="ex11button2" class="example11button" type="button"  value="a:only-child">
                             <input id="ex11button1" class="example11button" type="button"  value="p:only-child">
+                        </div>
+                        <div class="literal" id="literalexample11" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex11button1').click(function(){
+                $('#example11 a:only-child').css("background-color", "unset");
+                $('#example11 p:only-child').css("background-color", "yellow");
+            });
+            $('#ex11button2').click(function(){
+                $('#example11 p:only-child').css("background-color", "unset");
+                $('#example11 a:only-child').css("background-color", "yellow");
+            });
+            $('#example11reset').click(function(){
+                $('#example11 a:only-child').css("background-color", "unset");
+                $('#example11 p:only-child').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex11capa1"&gt;
+            &lt;p&gt;Primer elemento p&lt;/p&gt;
+            &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;
+            &lt;div id="ex11capa2"&gt;
+                &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;
+                &lt;div id="ex11capa3"&gt;
+                    &lt;p&gt;Primer elem p&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample11" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
                         <h4>:only-of-type</h4>
@@ -305,17 +667,55 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example12button" value="Ver código">
+                            <input id="example12code" type="button" class="example12button" value="Ver código">
                             <input id="example12reset" class="example12button" type="button"  value="Reset">
                             <input id="ex12button2" class="example12button" type="button"  value="a:only-of-type">
                             <input id="ex12button1" class="example12button" type="button"  value="p:only-of-type">
+                        </div>
+                        <div class="literal" id="literalexample12" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex12button1').click(function(){
+                $('#example12 a:only-of-type').css("background-color", "unset");
+                $('#example12 p:only-of-type').css("background-color", "yellow");
+            });
+            $('#ex12button2').click(function(){
+                $('#example12 p:only-of-type').css("background-color", "unset");
+                $('#example12 a:only-of-type').css("background-color", "yellow");
+            });
+            $('#example12reset').click(function(){
+                $('#example12 a:only-of-type').css("background-color", "unset");
+                $('#example12 p:only-of-type').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex12capa1"&gt;
+            &lt;p&gt;Primer elemento p&lt;/p&gt;
+            &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;&lt;br&gt;
+            &lt;a href="#"&gt;Segundo elemento a&lt;/a&gt;
+            &lt;div id="ex12capa2"&gt;
+                &lt;a href="#"&gt;Primer elemento a&lt;/a&gt;
+                &lt;p&gt;Primer elemento p&lt;/p&gt;
+                &lt;p&gt;Segunto elemento p&lt;/p&gt;
+                &lt;div id="ex12capa3"&gt;
+                    &lt;p&gt;Primer elem p&lt;/p&gt;
+                    &lt;a href="#"&gt;Primer elem a&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;Segundo elem a&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample12" class="closeCode" type="button" value="Cerrar">
                         </div>
                     </div>
                 </div>
             </div>
             <div style="clear: both;"></div>
 
-            <div id="pag3">
+            <div id="pag3" style="display: none;">
                 <h1>Tipos de Selectores</h1>
                 <div class="text">
                     <h3>Selectores de Contenido</h3>
@@ -327,11 +727,37 @@
                             <p>De cuyo nombre no quiero acordarme</p>
                             <p>No ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,</p>
                             <p>Adarga antigua, rocín flaco y galgo corredo</p>
-                            <input type="button" class="example13button" value="Ver código">
+                            <input id="example13code" type="button" class="example13button" value="Ver código">
                             <input id="example13reset" class="example13button" type="button"  value="Reset">
                             <input id="ex13button2" class="example13button" type="button"  value="De">
                             <input id="ex13button1" class="example13button" type="button"  value="Hidalgo">
                         </div>
+                        <div class="literal" id="literalexample13" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex13button1').click(function(){
+                $('#example13 p:contains(de)').css("background-color", "unset");
+                $('#example13 p:contains(hidalgo)').css("background-color", "yellow");
+            });
+            $('#ex13button2').click(function(){
+                $('#example13 p:contains(de)').css("background-color", "red");
+            });
+            $('#example13reset').click(function(){
+                $('#example13 > p').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;En un lugar de la mancha&lt;/p&gt;
+        &lt;p&gt;De cuyo nombre no quiero acordarme&lt;/p&gt;
+        &lt;p&gt;No ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,&lt;/p&gt;
+        &lt;p&gt;Adarga antigua, rocín flaco y galgo corredo&lt;/p&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample13" class="closeCode" type="button" value="Cerrar">
+                        </div>
+
                         <div style="clear: both;"></div>
                         <h4>x:empty</h4>
                         <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que no tengan hijos o texto.</p>
@@ -341,10 +767,33 @@
                                     <div id="ex14capa3"></div>
                                 </div>
                             </div>
-                            <input type="button" class="example14button" value="Ver código">
+                            <input id="example14code" type="button" class="example14button" value="Ver código">
                             <input id="example14reset" class="example14button" type="button"  value="Reset">
                             <input id="ex14button" class="example14button" type="button"  value="div:empty()">
                         </div>
+                        <div class="literal" id="literalexample14" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex14button').click(function(){
+                $('#example14 div:empty()').css("background-color", "red");
+            });
+            $('#example14reset').click(function(){
+                $('#example14 div:empty()').css("background-color", "unset");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex14capa1"&gt;
+            &lt;div id="ex14capa2"&gt;
+                &lt;div id="ex14capa3"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample14" class="closeCode" type="button" value="Cerrar">
+                        </div>
+
                         <div style="clear: both;"></div>
                         <h4>x:has(y)</h4>
                         <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que tienen dentro (hija o nieta) alguna etiqueta <span class="cursiva">y</span>.</p>
@@ -357,11 +806,42 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="button" class="example15button" value="Ver código">
+                            <input id="example15code" type="button" class="example15button" value="Ver código">
                             <input id="example15reset" class="example15button" type="button"  value="Reset">
                             <input id="ex15button2" class="example15button" type="button"  value="div:has(div)">
                             <input id="ex15button1" class="example15button" type="button"  value="div:has(p)">
                         </div>
+                        <div class="literal" id="literalexample15" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex15button1').click(function(){
+                $('#example15 div:has(div)').css("border", "2px solid black");
+                $('#example15 div:has(p)').css("border", "3px solid red");
+            });
+            $('#ex15button2').click(function(){
+                $('#example15 div:has(p)').css("border", "2px solid black");
+                $('#example15 div:has(div)').css("border", "3px solid red");
+            });
+            $('#example15reset').click(function(){
+                $('#example15 > div').css("border", "2px solid black");
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex15capa1"&gt;
+            &lt;p&gt;Párrafo&lt;/p&gt;
+            &lt;div id="ex15capa2"&gt;
+                &lt;div id="ex15capa3"&gt;
+                    &lt;p&gt;Párrafo&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample15" class="closeCode" type="button" value="Cerrar">
+                        </div>
+
                         <div style="clear: both;"></div>
                         <h4>x:parent</h4>
                         <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que tienen hijos <span class="negrita">incluyendo el texto</span>.</p>
@@ -382,17 +862,449 @@
                                     <td>aburiendoos</td>
                                 </tr>
                             </table>
-                            <input type="button" class="example16button" value="Ver código">
+                            <input id="example16code" type="button" class="example16button" value="Ver código">
                             <input id="example16reset" class="example16button" type="button"  value="Reset">
                             <input id="ex16button" class="example16button" type="button"  value="td:parent">
                         </div>
+                        <div class="literal" id="literalexample16" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex16button').click(function(){
+                $('#example16 td:parent').css('background-color', 'yellow');
+            });
+            $('#example16reset').click(function(){
+                $('#example16 td:parent').css('background-color', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table border='1'&gt;
+            &lt;tr&gt;
+                &lt;td&gt;hola&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;a&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;todos&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;espero&lt;/td&gt;
+                &lt;td&gt;no&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;estar&lt;/td&gt;
+                &lt;td&gt;aburiendoos&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample16" class="closeCode" type="button" value="Cerrar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+
+            <div id="pag4" style="display: block;">
+                <h1>Tipos de Selectores</h1>
+                <div class="text">
+                    <h3>Selectores de Formulario</h3>
+                    <div class="subtext">
+                        <p>Estos selectores son de los más sencillos que nos vamos a encontrar. Se forman
+                            poniendo primero dos puntos (<span class="cursiva">:</span>) seguidos del <span class="cursiva">tipo o estado </span>
+                            del elemento a seleccionar. Por ejemplo:
+                        </p>
+                        <div class="literal">
+<PRE>
+    $(':text') //Selecciona todos los input de tipo text 
+    $(':button') //Selecciona todos los input de tipo button y todos los elementos <span class="cursiva">button</span>
+    $(':checked') //Selecciona todos los checkbox que están seleccionados
+    $(':selected') //Selecciona todos los options que están seleccionados
+</PRE>
+                        </div>
+                        <br><br>
+                        <div class="example" id="example17" style="margin-top: 1%;">
+                            <form action="#">
+                                <div id="formleft">
+                                    <label for="name">Name: </label>
+                                    <input type="text" placeholder="Name"><br><br>
+                                    <label for="surname">Surname: </label>
+                                    <input type="text" placeholder="Surname"><br><br>
+                                    <label for="age">Age</label><br>
+                                    <input type="checkbox" name="age" value="18">&lt; 18 <br>
+                                    <input type="checkbox" name="age" value="25">&lt; 25 <br>
+                                    <input type="checkbox" name="age" value="35">&lt; 35 <br>
+                                    <input type="checkbox" name="age" value="45">&lt; 45 <br>
+                                    <input type="checkbox" name="age" value="55">&lt; 55 <br>
+                                    <input type="checkbox" name="age" value="56">&gt; 55 <br>
+                                </div>
+                                <div id="formright">
+                                    <label for="music">Music:</label>
+                                    <select name="music" multiple="multiple">
+                                        <option>Rock</option>
+                                        <option>Pop</option>
+                                        <option>Reagge</option>
+                                        <option>Classic</option>
+                                        <option>Reggaeton</option>
+                                        <option>Trap</option>
+                                    </select><br><br>
+                                    <label for="photo">Foto de perfil</label>
+                                    <input type="file" name="photo" ><br><br>
+                                    <input type="submit" value="Enviar" disabled>
+                                </div>
+                                <div id="example17result"></div>
+                                
+                            </form>
+                            <div id="example17buttons">
+                                <input id="ex17button1" class="example17button" type="button"  value=":button">
+                                <input id="ex17button2" class="example17button" type="button"  value=":checkbox">
+                                <input id="ex17button3" class="example17button" type="button"  value=":checked">
+                                <input id="ex17button4" class="example17button" type="button"  value=":disabled">
+                                <input id="ex17button5" class="example17button" type="button"  value=":file">
+                                <input id="ex17button6" class="example17button" type="button"  value=":selected">
+                                <input id="ex17button7" class="example17button" type="button"  value=":submit">
+                                <input id="ex17button8" class="example17button" type="button"  value=":text">
+                                <input id="example17reset" class="example76button" type="button"  value="Reset">
+                                <input id="example17code" type="button" class="example17button" value="Ver código">
+                            </div>
+                        </div>
+                        <div class="literal" id="literalexample16" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            //BOTÓN DE RESET
+            $('#example17reset').click(function(){
+                $('#example17 *').css('background-color', 'unset');
+            });
+
+            //BOTÓN :BUTTON
+            $('#ex17button1').click(function(){
+                $('#example17 :button').css('background-color', 'yellow');
+            });
+            
+            //BOTÓN :CHECKBOX
+            $('#ex17button2').click(function(){
+                $('#example17result').empty();
+                var total = $('#example17 :checkbox').length;
+                $('#example17result').append("&lt;p id='numcheckbox'&gt;Número total de checkbox: "+ total +"&lt;/p&gt;");
+            });
+
+            //BOTÓN :CHECKED 
+            $('#ex17button3').click(function(){
+                //Vacío la capa donde aparecen los resultados
+                $('#example17result').empty();
+                //Recojo los campos checkbox y los que están marcados por separado
+                var totalChecked = $('#example17 :checked');
+                var totalCheckbox = $('#example17 :checkbox');
+                //Los resto para ver cuantos NO están marcados
+                var unselected = totalCheckbox.length - totalChecked.length;
+                $('#example17result').append("&lt;p&gt;Número de checkbox seleccionados: "+ totalChecked.length +"&lt;/p&gt;");
+                $('#example17result').append("&lt;p&gt;Número de checkbox sin seleccionar: "+ unselected +"&lt;/p&gt;");
+                for(i = 0; i &lt; totalChecked.length; i++){
+                    var turno = totalChecked[i];
+                    $('#example17result').append("&lt;p&gt;"+ totalChecked[i].value +"&lt;/p&gt;");
+                }
+            });
+            $('#ex17button4').click(function(){
+                $('#example17 :disabled').css('background-color', 'yellow');
+            });
+            $('#ex17button5').click(function(){
+                $('#example17 :file').css('background-color', 'yellow');
+            });
+            $('#ex17button6').click(function(){
+                $('#example17result').empty();
+                var selected = $('#example17 :selected');
+                for(i = 0; i &lt; selected.length; i++){
+                    $('#example17result').append("&lt;p&gt;" +  selected[i].value + "&lt;/p&gt;")
+                }
+            });
+            $('#ex17button7').click(function(){
+                $('#example17 :submit').css('background-color', 'yellow');
+            });
+            $('#ex17button8').click(function(){
+                $('#example17 :text').css('background-color', 'yellow');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form action="#"&gt;
+            &lt;div id="formleft"&gt;
+                &lt;label for="name"&gt;Name: &lt;/label&gt;
+                &lt;input type="text" placeholder="Name"&gt;&lt;br&gt;&lt;br&gt;
+                &lt;label for="surname"&gt;Surname: &lt;/label&gt;
+                &lt;input type="text" placeholder="Surname"&gt;&lt;br&gt;&lt;br&gt;
+                &lt;label for="age"&gt;Age&lt;/label&gt;&lt;br&gt;
+                &lt;input type="checkbox" name="age" value="18"&gt;&lt; 18 &lt;br&gt;
+                &lt;input type="checkbox" name="age" value="25"&gt;&lt; 25 &lt;br&gt;
+                &lt;input type="checkbox" name="age" value="35"&gt;&lt; 35 &lt;br&gt;
+                &lt;input type="checkbox" name="age" value="45"&gt;&lt; 45 &lt;br&gt;
+                &lt;input type="checkbox" name="age" value="55"&gt;&lt; 55 &lt;br&gt;
+                &lt;input type="checkbox" name="age" value="56"&gt;&gt; 55 &lt;br&gt;
+            &lt;/div&gt;
+            &lt;div id="formright"&gt;
+                &lt;label for="music"&gt;Music:&lt;/label&gt;
+                &lt;select name="music" multiple="multiple"&gt;
+                    &lt;option&gt;Rock&lt;/option&gt;
+                    &lt;option&gt;Pop&lt;/option&gt;
+                    &lt;option&gt;Reagge&lt;/option&gt;
+                    &lt;option&gt;Classic&lt;/option&gt;
+                    &lt;option&gt;Reggaeton&lt;/option&gt;
+                    &lt;option&gt;Trap&lt;/option&gt;
+                &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+                &lt;label for="photo"&gt;Foto de perfil&lt;/label&gt;
+                &lt;input type="file" name="photo" &gt;&lt;br&gt;&lt;br&gt;
+                &lt;input type="submit" value="Enviar" disabled&gt;
+            &lt;/div&gt;
+            &lt;div id="example17result"&gt;&lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample16" class="closeCode" type="button" value="Cerrar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+
+            <div id="pag5" style="display: block;">
+                <h1>Tipos de Selectores</h1>
+                <div class="text">
+                    <h3>Selectores Jerárquicos</h3>
+                    <div class="subtext">
+                        <h4>Selector de descendencia</h4>
+                        <p>Sirve para seleccionar los hijos de un elemento.</p>
+                        <div class="example" id="example18">
+                            <div id="ex18capa1">
+                                <p>Yo soy padre y abuelo.</p>
+                                <p>Mi nombre es Diego.</p>
+                                <div id="ex18capa2">
+                                    <p>Yo soy hijo y padre</p>
+                                    <p>Mi nombre es Francisco.</p>
+                                    <div id="ex18capa3">
+                                        <p>Yo soy hijo y nieto.</p>
+                                        <p>Mi nombre es Fernando.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="example18buttons">
+                                <input id="ex18button1" class="example18button" type="button"  value="Descendencia de Diego">
+                                <input id="ex18button2" class="example18button" type="button"  value="Descendencia de Francisco">
+                                <input id="example18reset" class="example18button" type="button"  value="Reset">
+                                <input id="example18code" type="button" class="example18button" value="Ver código">
+                            </div>
+                        </div>
+                        <div class="literal" id="literalexample18" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex18button1').click(function(){
+                $('#ex18capa1 *').css('border', '3px solid yellow');
+            });
+            $('#ex18button2').click(function(){
+                $('#ex18capa1 div').css('border', '2px solid black');
+                $('#ex18capa1 p').css('border', 'unset');
+                $('#ex18capa1 div *').css('border', '3px solid blue');
+            });
+            $('#example18reset').click(function(){
+                $('#ex18capa1 div').css('border', '2px solid black');
+                $('#ex18capa1 p').css('border', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex18capa1"&gt;
+        &lt;p&gt;Yo soy padre y abuelo.&lt;/p&gt;
+        &lt;p&gt;Mi nombre es Diego.&lt;/p&gt;
+            &lt;div id="ex18capa2"&gt;
+                &lt;p&gt;Yo soy hijo y padre&lt;/p&gt;
+                &lt;p&gt;Mi nombre es Francisco.&lt;/p&gt;
+                &lt;div id="ex18capa3"&gt;
+                    &lt;p&gt;Yo soy hijo y nieto.&lt;/p&gt;
+                    &lt;p&gt;Mi nombre es Fernando.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample18" class="closeCode" type="button" value="Cerrar">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>Selector de hijos <span class="cursiva">></span></h4>
+                        <p>Selecciona los hijos directos de un elemento</p>
+                        <div class="example" id="example19">
+                            <div id="ex19capa1">
+                                <p>Yo soy padre y abuelo.</p>
+                                <p>Mi nombre es Diego.</p>
+                                <div id="ex19capa2">
+                                    <p>Yo soy hijo y padre</p>
+                                    <p>Mi nombre es Francisco.</p>
+                                    <div id="ex19capa3">
+                                        <p>Yo soy hijo y nieto.</p>
+                                        <p>Mi nombre es Fernando.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="example19buttons">
+                                <input id="ex19button1" class="example19button" type="button"  value="Hijos de Diego">
+                                <input id="ex19button2" class="example19button" type="button"  value="Hijos de Francisco">
+                                <input id="example19reset" class="example19button" type="button"  value="Reset">
+                                <input id="example19code" type="button" class="example19button" value="Ver código">
+                            </div>
+                        </div>
+                        <div class="literal" id="literalexample19" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex19button1').click(function(){
+                $('#ex19capa1 > *').css('border', '3px solid yellow');
+            });
+            $('#ex19button2').click(function(){
+                $('#ex19capa1 > div').css('border', '2px solid black');
+                $('#ex19capa1 > p').css('border', 'unset');
+                $('#ex19capa2 > *').css('border', '3px solid blue');
+            });
+            $('#example19reset').click(function(){
+                $('#ex19capa1 div').css('border', '2px solid black');
+                $('#ex19capa1 p').css('border', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="ex19capa1"&gt;
+        &lt;p&gt;Yo soy padre y abuelo.&lt;/p&gt;
+        &lt;p&gt;Mi nombre es Diego.&lt;/p&gt;
+            &lt;div id="ex19capa2"&gt;
+                &lt;p&gt;Yo soy hijo y padre&lt;/p&gt;
+                &lt;p&gt;Mi nombre es Francisco.&lt;/p&gt;
+                &lt;div id="ex19capa3"&gt;
+                    &lt;p&gt;Yo soy hijo y nieto.&lt;/p&gt;
+                    &lt;p&gt;Mi nombre es Fernando.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample19" class="closeCode" type="button" value="Cerrar">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>Póximo adyacente <span class="cursiva">('x + y')</span></h4>
+                        <p>Selecciona el primer elemento hermano de <span class="cursiva">x</span> de tipo <span class="cursiva">y</span> </p>
+                        <div class="example" id="example20">
+                            <h3 class="ex20h3">Partimos de mi.</h3>
+                            <p>Primer hermano</p>
+                            <a href="#">Segundo hermano</a><br><br>
+                            <h3 class="ex20h3">Partimos de mi.</h3>
+                            <a href="#">Primer hermano</a>
+                            <p>Segundo hermano</p>
+                            <h3 class="ex20h3">Partimos de mi.</h3>
+                            <p>Primer hermano</p>
+                            <a href="#">Segundo hermano</a><br><br>
+                            <input id="example20code" type="button" class="example20button" value="Ver código">
+                            <input id="example20reset" class="example20button" type="button"  value="Reset">
+                            <input id="ex20button2" class="example20button" type="button"  value="Primer enlace hermano">
+                            <input id="ex20button1" class="example20button" type="button"  value="Primer párrafo hermano">
+                        </div>
+                        <div class="literal" id="literalexample20" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex20button1').click(function(){
+                $('h3.ex20h3 + p').css('background-color', 'yellow');
+            });
+            $('#ex20button2').click(function(){
+                $('h3.ex20h3 + p').css('background-color', 'unset');
+                $('h3.ex20h3 + a').css('background-color', 'yellow');
+            });
+            $('#example20reset').click(function(){
+                $('#example20 > *').css('background-color', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
+        &lt;p&gt;Primer hermano&lt;/p&gt;
+        &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+        &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
+        &lt;a href="#"&gt;Primer hermano&lt;/a&gt;
+        &lt;p&gt;Segundo hermano&lt;/p&gt;
+        &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
+        &lt;p&gt;Primer hermano&lt;/p&gt;
+        &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+        &lt;input id="example20code" type="button" class="example20button" value="Ver código"&gt;
+        &lt;input id="example20reset" class="example20button" type="button"  value="Reset"&gt;
+        &lt;input id="ex20button2" class="example20button" type="button"  value="Primer enlace hermano"&gt;
+        &lt;input id="ex20button1" class="example20button" type="button"  value="Primer párrafo hermano"&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample20" class="closeCode" type="button" value="Cerrar">
+                        </div>
+                        <div style="clear: both;"></div>
+                        <h4>Próximo hermano <span class="cursiva">('x ~ y')</span></h4>
+                        <p>Selecciona todos los hermanos de <span class="cursiva">x</span> que sean de tipo <span class="cursiva">y</span></p>
+                        <div class="example" id="example21">
+                            <h3 class="ex21h3">Partimos de mi.</h3>
+                            <p>Primer hermano</p>
+                            <a href="#">Segundo hermano</a>
+                            <p>Tercer hernamo</p>
+                            <h3 class="ex21h3">Partimos de mi.</h3>
+                            <a href="#">Primer hermano</a>
+                            <p>Segundo hermano</p>
+                            <a href="#">Tercer hermano</a>
+                            <h3 class="ex21h3">Partimos de mi.</h3>
+                            <p>Primer hermano</p>
+                            <a href="#">Segundo hermano</a>
+                            <p>Tercer hermano</p>
+                            <input id="example21code" type="button" class="example21button" value="Ver código">
+                            <input id="example21reset" class="example21button" type="button"  value="Reset">
+                            <input id="ex21button2" class="example21button" type="button"  value="Enlaces hermanos">
+                            <input id="ex21button1" class="example21button" type="button"  value="Párrafos hermanos">
+                        </div>
+                        <div class="literal" id="literalexample21" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex21button1').click(function(){
+                $('h3.ex21h3 ~ p').css('background-color', 'yellow');
+            });
+            $('#ex21button2').click(function(){
+                $('h3.ex21h3 ~ p').css('background-color', 'unset');
+                $('h3.ex21h3 ~ a').css('background-color', 'yellow');
+            });
+            $('#example21reset').click(function(){
+                $('#example21 > *').css('background-color', 'unset');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h3 class="ex21h3"&gt;Partimos de mi.&lt;/h3&gt;
+        &lt;p&gt;Primer hermano&lt;/p&gt;
+        &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;
+        &lt;p&gt;Tercer hernamo&lt;/p&gt;
+        &lt;h3 class="ex21h3"&gt;Partimos de mi.&lt;/h3&gt;
+        &lt;a href="#"&gt;Primer hermano&lt;/a&gt;
+        &lt;p&gt;Segundo hermano&lt;/p&gt;
+        &lt;a href="#"&gt;Tercer hermano&lt;/a&gt;
+        &lt;h3 class="ex21h3"&gt;Partimos de mi.&lt;/h3&gt;
+        &lt;p&gt;Primer hermano&lt;/p&gt;
+        &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;
+        &lt;p&gt;Tercer hermano&lt;/p&gt;
+        //BOTONES
+        &lt;input id="example21code" type="button" class="example21button" value="Ver código"&gt;
+        &lt;input id="example21reset" class="example21button" type="button"  value="Reset"&gt;
+        &lt;input id="ex21button2" class="example21button" type="button"  value="Enlaces hermanos"&gt;
+        &lt;input id="ex21button1" class="example21button" type="button"  value="Párrafos hermanos"&gt;
+    &lt;/body&gt;
+</PRE>
+                            <input id="closeexample21" class="closeCode" type="button" value="Cerrar">
+                        </div>
+                        
                     </div>
                 </div>
             </div>
             
             <div id="flechas">
-                <img id="flechaizquierda" class="flecha" src="../images/izquierda.png" alt="flechaizquierda" width="70px">
-                <img id="flechaderecha" class="flecha" src="../images/derecha.png" alt="flechaderecha" width="70px">
+                <img id="flechaizquierda" class="flecha" src="../images/izquierda.png" alt="flechaizquierda" width="70px" onclick="window.location.href='#'">
+                <img id="flechaderecha" class="flecha" src="../images/derecha.png" alt="flechaderecha" width="70px" onclick="window.location.href='#'">
+                <input type="hidden" name="pagina" id="pagina" value="1">
             </div>
         </div>
         <div id="footer">
