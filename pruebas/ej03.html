@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $().ready(function(){
+            $('#radio1').prop('prueba', 50);
+            $('#radio1').attr('prueba', 60);
+            $("#boton").on("click", function() {
+                console.log("Atributo checked = " + $("#radio2").attr("checked"));
+                console.log("Propiedad checked = " + $("#radio2").prop("checked"));
+            });
+            $('#boton2').click(function(){
+                alert($('#radio1').prop('id'));
+                alert($('#radio1').attr('prueba'));
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="radio1" name="miRadio" type="radio" value="1" />
+    <input id="radio2" name="miRadio" type="radio" value="2"/>
+
+    <button id="boton">Comprobar</button>
+    <button id="boton2">Ver propiedad</button>
+</body>
+</html>

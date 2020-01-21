@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Maria Del Mar Fernandez Bonillo">
+    <title>JQUERY</title>
+
+    <!----------FONTS---------->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/dom.css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascript/dom.js"></script>
+    <script type="text/javascript" src="../javascript/codebuttonsDOM.js"></script>
+</head>
+<body>
+    <div id="all">
+        <div id="header">
+            <div id="logo">
+                <img id="logoimg" src="../images/jquery/logo.png" alt="logo" >
+            </div>
+            <div id="menu">
+                <a href="../index.html">Introducción</a>
+                <a href="selectores.html">Selectores</a>
+                <a href="#">DOM</a>
+                <a href="#">Eventos</a>
+                <a href="#">Efectos</a>
+            </div>
+        </div>
+        <div id="content">
+            <h1>Manipulación Del Árbol DOM</h1>
+            <div class="text">
+                <h2>¿Qué es el Árbol DOM?</h2>
+                <div class="subtext">
+                    <p>Es la representacíon gráfica en forma de árbol de la estructura de una página.</p>
+                    <img src="../images/dom.png" alt="dom" width="700">
+                </div>
+                <div style="clear: both;"></div>
+                <h2>¿Qué Podemos Hacer?</h2>
+                <div class="subtext">
+                    <p>Hay muchísimas funciones de manipulación del DOM. A continuación veremos una
+                         lista de todas las que disponemos y ejemplos de las más relevantes.</p>
+                    <div class="literal">
+<PRE>
+    &lt;script type="text/javascript"&gt;
+
+        x.addClass('classname')          //Añade una nueva clase a un elemento
+        x.hasClass('classname')          //Comprueba si el elemento x tiene o no la clase 'classname'
+        x.toggleClass()
+        x.before('content')              //Añade contenido antes de cada etiqueta x
+        x.after('content')               //Añade contenido despues de cada etiqueta x
+        $('content').insertAfter(x)      //Inserta el contenido especificado despues de cada elemento x
+        $('content').insertBefore(x)     //Inserta el contenido especificado antes de cada elemento x
+        x.prepend('content')             //Añade contenido al principio de la etiqueta x
+        x.prependTo('tag')               //Añade el contenido x al final de la etiqueta 'tag'
+        x.append('content')              //Añade contenido al final de la etiqueta x
+        x.appendTo('tag')                //Añade el contenido x al final de la etiqueta 'tag'
+        $('content').replaceAll(x)       //Remplaza el elemento(s) x por el contenido especificado
+        x.replaceWith('content')         //Remplaza el elemento(s) x por el contenido especificado y devuelve
+                                         //el número de elementos que ha eliminado
+        x.text()                         //Devuelve una cadena de texto con todo el contenido de la página
+        x.text('content')                //Sustituye el contenido del elemento(s) x por el especificado.
+                                         //No reconoce etiquetas HTML
+        x.empty()                        //Vacía (literalmente) la etiqueta x
+        x.remove()                       //Elimina el elemento(s) x así como todo el código jQuery asociados a estos
+        x.detach()                       //Elimina el elemento(s) x dejando el código jQuery asociado
+        x.attr('attrname'{, 'value'})    //Recupera el valor de un atributo o añade/remplaza un atributo a un elemento
+        x.clone()                        //Clona el elemento x
+        x.css('property'{, 'value'})     //Recupera el valor de una propiedad css o añade una propiedad css
+        x.height({'value'})              //Devuelve o asigna la altura del elemento x
+        x.width({'value'})               //Devuelve o asigna la anchura del elemento x
+        x.html()                         //Devuleve el contenido HTML del elemento x
+        x.html('HTMLcontent')            //Añade el contenido HTML a cada uno de los elementos x
+        x.innerHeight()                  //Devuelve el alto INTERIOR de un elemento (incluye padding pero no borde)
+        x.innerWidth()                   //Devuelve el ancho INTERIOR de un elemento (incluye padding pero no borde)
+        x.outerHeigth()                  //Devuelve el alto total del elemento x (incluye margen, borde y padding)
+        x.outerWidth()                   //Devuelve el ancho total del elemento x (incluye margen, borde y padding)
+        x.prop('propertyname')           //Devuelve el valor de la propiedad especificada del elemento x
+        x.prop('propertyname', 'value')  //Asigna la propiedad y su valor a todos los elementos x
+        x.removeAttr('attrname')         //Elimina el atributo especificado del elemento(s) x
+        x.removeProp('propertyname')     //Elimina la propiedad especificada del elemento(s) x
+        x.removeClass('class1 class2')   //Elimina una o varias clases del elemento(s) x
+        x.wrap('content')                //Añade el padre 'content' al elemento(s) x
+        x.wrapAll()
+        x.wrapInner()
+        x.unwrap()
+
+    &lt;/script&gt;
+</PRE>
+                    </div>
+                    <div style="clear: both;"></div>
+                    <p>Vamos a ver ejemplos de cada uno de ellos</p>
+                    <h4>Manipulación de clases</h4>
+                    <div class="example" id="example1">
+                        <p class="ex01">Párrafo 1</p >
+                        <p class="ex01">Párrafo 2</p >
+                        <p class="ex01">Párrafo 3</p >
+                        <input id="example1code" type="button" class="example1button" value="Ver código">
+                        <input id="example1reset" type="button" class="example1button" value="Reset">
+                        <input id="example3button" type="button" class="example1button" value="class='ambas'(toggle)">
+                        <input id="example2button" type="button" class="example1button" value="class='fondo azul'">
+                        <input id="example1button" type="button" class="example1button" value="class='rojo'">
+                    </div>
+                    <div class="literal" id="literal1" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#example1button').click(function(){
+                $('p.ex01').removeClass('fondoazul').addClass('rojo');
+            });
+            $('#example2button').click(function(){
+                $('p.ex01').removeClass('rojo').addClass('fondoazul');
+            });
+            $('#example3button').click(function(){
+                $('p.ex01').removeClass('rojo fondoazul')
+                $('p.ex01').toggleClass('rojoyazul');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p class="ex01"&gt;Párrafo 1&lt;/p &gt;
+        &lt;p class="ex01"&gt;Párrafo 2&lt;/p &gt;
+        &lt;p class="ex01"&gt;Párrafo 3&lt;/p &gt;
+        &lt;input id="example1code" type="button" class="example1button" value="Ver código"&gt;
+        &lt;input id="example1reset" type="button" class="example1button" value="Reset"&gt;
+        &lt;input id="example3button" type="button" class="example1button" value="class='ambas'(toggle)"&gt;
+        &lt;input id="example2button" type="button" class="example1button" value="class='fondo azul'"&gt;
+        &lt;input id="example1button" type="button" class="example1button" value="class='rojo'"&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample1" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4>Manipulación de contenido</h4>
+                    <div class="example" id="example2">
+                        <div class="capaex2"></div>
+                        <div class="capaex2"></div>
+                        <div class="capaex2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>María del Mar Fernández Bonillo</p>
+        </div>
+    </div>
+</body>
+</html>

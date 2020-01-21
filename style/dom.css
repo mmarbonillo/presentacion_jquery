@@ -1,0 +1,28 @@
+/* EJEMPLO 1 */
+.example1button {
+    float: right;
+    margin-bottom: 1%;
+}
+
+.rojo {
+    color: red;
+}
+
+.fondoazul {
+    background-color: blue;
+}
+
+.rojoyazul {
+    color: red;
+    background-color: blue;
+}
+
+/* EJEMPLO 2 */
+.capaex2 {
+    border: 1px solid black;
+    float: left;
+    width: 30%;
+    height: 300px;
+    margin: 2% 0;
+    margin-right: 2%;
+}

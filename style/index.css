@@ -145,9 +145,14 @@ input[type='button']:hover {
 .literal {
     float: left;
     width: 100%;
+    overflow-x: scroll;
     border: 2px solid #868686;
     background-color: #DEDEDE;
     border-radius: 20px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .cursiva {
