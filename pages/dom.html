@@ -48,40 +48,40 @@
 
         x.addClass('classname')          //Añade una nueva clase a un elemento
         x.hasClass('classname')          //Comprueba si el elemento x tiene o no la clase 'classname'
-        x.toggleClass()
+        x.removeClass('class1 class2')   //Elimina una o varias clases del elemento(s) x
+        x.toggleClass('classname')       //Añade y elimina alternativa mente la(s) clase(s)
         x.before('content')              //Añade contenido antes de cada etiqueta x
         x.after('content')               //Añade contenido despues de cada etiqueta x
         $('content').insertAfter(x)      //Inserta el contenido especificado despues de cada elemento x
         $('content').insertBefore(x)     //Inserta el contenido especificado antes de cada elemento x
         x.prepend('content')             //Añade contenido al principio de la etiqueta x
-        x.prependTo('tag')               //Añade el contenido x al final de la etiqueta 'tag'
+        ('content').prependTo(x)         //Añade el contenido x al final de la etiqueta x
         x.append('content')              //Añade contenido al final de la etiqueta x
-        x.appendTo('tag')                //Añade el contenido x al final de la etiqueta 'tag'
+        ('content').appendTo(x)          //Añade el contenido x al final de la etiqueta x
         $('content').replaceAll(x)       //Remplaza el elemento(s) x por el contenido especificado
-        x.replaceWith('content')         //Remplaza el elemento(s) x por el contenido especificado y devuelve
-                                         //el número de elementos que ha eliminado
+        x.replaceWith('content')         //Remplaza el element o(s) x por el contenido especificado
+                                         //y devuelve el número de elementos que ha eliminado
         x.text()                         //Devuelve una cadena de texto con todo el contenido de la página
         x.text('content')                //Sustituye el contenido del elemento(s) x por el especificado.
                                          //No reconoce etiquetas HTML
         x.empty()                        //Vacía (literalmente) la etiqueta x
         x.remove()                       //Elimina el elemento(s) x así como todo el código jQuery asociados a estos
         x.detach()                       //Elimina el elemento(s) x dejando el código jQuery asociado
-        x.attr('attrname'{, 'value'})    //Recupera el valor de un atributo o añade/remplaza un atributo a un elemento
-        x.clone()                        //Clona el elemento x
         x.css('property'{, 'value'})     //Recupera el valor de una propiedad css o añade una propiedad css
+        x.attr('attrname'{, 'value'})    //Recupera el valor de un atributo o añade/remplaza un atributo a un elemento
+        x.prop('propertyname')           //Devuelve el valor de la propiedad especificada del elemento x
+        x.prop('propertyname', 'value')  //Asigna la propiedad y su valor a todos los elementos x
+        x.removeAttr('attrname')         //Elimina el atributo especificado del elemento(s) x
+        x.removeProp('propertyname')     //Elimina la propiedad especificada del elemento(s) x
         x.height({'value'})              //Devuelve o asigna la altura del elemento x
         x.width({'value'})               //Devuelve o asigna la anchura del elemento x
+        x.clone()                        //Clona el elemento x
         x.html()                         //Devuleve el contenido HTML del elemento x
         x.html('HTMLcontent')            //Añade el contenido HTML a cada uno de los elementos x
         x.innerHeight()                  //Devuelve el alto INTERIOR de un elemento (incluye padding pero no borde)
         x.innerWidth()                   //Devuelve el ancho INTERIOR de un elemento (incluye padding pero no borde)
         x.outerHeigth()                  //Devuelve el alto total del elemento x (incluye margen, borde y padding)
         x.outerWidth()                   //Devuelve el ancho total del elemento x (incluye margen, borde y padding)
-        x.prop('propertyname')           //Devuelve el valor de la propiedad especificada del elemento x
-        x.prop('propertyname', 'value')  //Asigna la propiedad y su valor a todos los elementos x
-        x.removeAttr('attrname')         //Elimina el atributo especificado del elemento(s) x
-        x.removeProp('propertyname')     //Elimina la propiedad especificada del elemento(s) x
-        x.removeClass('class1 class2')   //Elimina una o varias clases del elemento(s) x
         x.wrap('content')                //Añade el padre 'content' al elemento(s) x
         x.wrapAll()
         x.wrapInner()
@@ -99,8 +99,8 @@
                         <p class="ex01">Párrafo 3</p >
                         <input id="example1code" type="button" class="example1button" value="Ver código">
                         <input id="example1reset" type="button" class="example1button" value="Reset">
-                        <input id="example3button" type="button" class="example1button" value="class='ambas'(toggle)">
-                        <input id="example2button" type="button" class="example1button" value="class='fondo azul'">
+                        <input id="example1button3" type="button" class="example1button" value="class='ambas'(toggle)">
+                        <input id="example1button2" type="button" class="example1button" value="class='fondo azul'">
                         <input id="example1button" type="button" class="example1button" value="class='rojo'">
                     </div>
                     <div class="literal" id="literal1" style="display: none;">
@@ -135,9 +135,264 @@
                     <div style="clear: both;"></div>
                     <h4>Manipulación de contenido</h4>
                     <div class="example" id="example2">
-                        <div class="capaex2"></div>
-                        <div class="capaex2"></div>
-                        <div class="capaex2"></div>
+                        <div class="capaex2">
+                            <p class="ex2p">Primer párrafo</p>
+                        </div>
+                        <div class="capaex2">
+                            <p class="ex2p">Primer párrafo</p>
+                        </div>
+                        <div class="capaex2">
+                            <p class="ex2p">Primer párrafo</p>
+                        </div>
+                        <input id="example2button" type="button" class="example2button" value="$('p').before()">
+                        <input id="example2button2" type="button" class="example2button" value="$().insertAfter('p')">
+                        <input id="example2button3" type="button" class="example2button" value="$('div').prepend()">
+                        <input id="example2button4" type="button" class="example2button" value="$().apendTo('div')">
+                        <input id="example2button5" type="button" class="example2button" value="$('p').replaceWith('a')">
+                        <input id="example2button6" type="button" class="example2button" value="$('div').text()">
+                        <input id="example2button7" type="button" class="example2button" value="$('div').empty()">
+                        <input id="example2reset" type="button" class="example2button" value="Reset">
+                        <input id="example2code" type="button" class="example2button" value="Ver código">
+                    </div>
+                    <div class="literal" id="literal2" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#example2button').click(function(){
+                $('.capaex2 &gt; p').before('&lt;p class="ex2new"&gt;Párrafo before&lt;/p&gt;');
+            });
+            $('#example2button2').click(function(){
+                $('&lt;p class="ex2new"&gt;Párrafo insertAfter&lt;/p&gt;').insertAfter('.capaex2 &gt; p');
+            });
+            $('#example2button3').click(function(){
+                $('.capaex2').prepend('&lt;p class="ex2new"&gt;Párrafo prepend&lt;/p&gt;');
+            });
+            $('#example2button4').click(function(){
+                $('&lt;p class="ex2new"&gt;Párrafo appendTo&lt;/p&gt;').appendTo('.capaex2');
+            });
+            $('#example2button5').click(function(){
+                $('p.ex2new').replaceWith('&lt;a class="ex2new" href="#"&gt;Enlace de reemplazo');
+            });
+            $('#example2button6').click(function(){
+                alert($('div.capaex2').text());
+            });
+            $('#example2button7').click(function(){
+                $('.capaex2').empty();
+            });
+            $('#example2reset').click(function(){
+                $('.ex2new').remove();
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="capaex2"&gt;
+            &lt;p class="ex2p"&gt;Primer párrafo&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="capaex2"&gt;
+            &lt;p class="ex2p"&gt;Primer párrafo&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="capaex2"&gt;
+            &lt;p class="ex2p"&gt;Primer párrafo&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;input id="example2button" type="button" value="$('p').before()"&gt;
+        &lt;input id="example2button2" type="button" value="$().insertAfter('p')"&gt;
+        &lt;input id="example2button3" type="button" value="$('div').prepend()"&gt;
+        &lt;input id="example2button4" type="button" value="$().apendTo('div')"&gt;
+        &lt;input id="example2button5" type="button" value="$('p').replaceWith('a')"&gt;
+        &lt;input id="example2button6" type="button" value="$('div').text()"&gt;
+        &lt;input id="example2button7" type="button" value="$('div').empty()"&gt;
+        &lt;input id="example2reset" type="button" value="Reset"&gt;
+        &lt;input id="example2code" type="button" value="Ver código"&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample2" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <div class="example" id="example22">
+                        <div id="contentex22"></div>
+                        <input id="example22input" type="text" name="contenido" >
+                        <input id="example22code" type="button" class="example22button" value="Ver código">
+                        <input id="example22button2" type="button" class="example22button" value="Modificar">
+                        <input id="example22button1" type="button" class="example22button" value="Añadir">
+                    </div>
+                    <div class="literal" id="literal22" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#example22button1').click(function(){
+                var value = $('#example22input').val();
+                $('#contentex22').append('&lt;p&gt;' + value +'&lt;/p&gt;');
+                $('#example22input').val('');
+            });
+            $('#example22button2').click(function(){
+                var value = $('#example22input').val();
+                $('#contentex22 > p').text(value);
+                $('#example22input').val('');
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="contentex22"&gt;&lt;/div&gt;
+        &lt;input id="example22input" type="text" name="contenido" &gt;
+        &lt;input id="example22code" type="button" class="example22button" value="Ver código"&gt;
+        &lt;input id="example22button2" type="button" class="example22button" value="Modificar"&gt;
+        &lt;input id="example22button1" type="button" class="example22button" value="Añadir"&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample22" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4>Manipulación de Atributos y Propiedades</h4>
+                    <div>
+                        <h5 style="display: inline;" >¿Cual es la diferencia entra propiedad y atributo?</h5><img src="../images/eye.png" alt="eye" width="20px" id="eye">
+                    </div>
+                    <div id="difpropattr">
+                        <p>Un atributo es todo campo que se le puede añadir a una etiqueta en el momento de su creación (id, class, name, value...).
+                            Una vez se ha creado la etiqueta y el archivo se ejecuta en un navegador web, este crea el árbol DOM y convierte cada 
+                            etiqueta en un objeto HTML al que llamamos <span class="cursiva">elemento</span>. Todos los atributos de la etiqueta 
+                            se convierten en <span class="negrita">propiedades</span> del objeto HTML.
+                        </p>
+                        <p>A parte de las propiedades generadas a raíz de los atributos de la etiqueta, tenemos las propiedades del propio elemento 
+                            (nodeName, selectedIndex, multiple, readOnly...).
+                        </p>
+                        <p>Antes de la versión 1.6 de jQuery (a partir de la cual se incluyó <span class="sursiva">.prop()</span>), .attr() devolvía
+                            tanto atributos como propiedades pero esto daba problemas a la hora de acceder a propiedades que devolvían un booleano.
+                        </p>
+                        <p>Veamos el ejemplo más claro de que, aunque puedan parecer lo mismo e incluso a veces el atributo y la propiedad compartan nombre,
+                            no son lo mismo:
+                        </p>
+                        <div class="literal">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#example3button').click(function(){
+                alert("Atributo checked = " + $("#radio2").attr("checked") +
+                "\n" + "Propiedad checked = " + $("#radio2").prop("checked"));
+            });
+            $('#example3button2').click(function(){
+                alert("Atributo name = " + $("#radio2").attr("name") +
+                "\n" + "Propiedad name = " + $("#radio2").prop("name"));
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input id="radio1" name="miRadio" type="radio" value="1" /&gt;
+        &lt;input id="radio2" name="miRadio" type="radio" value="2" checked="checked" /&gt;
+    &lt;/body&gt;
+</PRE>
+                        </div>
+                        <div class="example" id="example3" style="margin-top: 1%;">
+                            <input id="radio1" name="miRadio" type="radio" value="1" />
+                            <input id="radio2" name="miRadio" type="radio" value="2" checked="checked" />
+                            <input id="example3button2" type="button" class="example3button" value="Name">
+                            <input id="example3button" type="button" class="example3button" value="Comprobar">
+                        </div>
+                        <div class="example" id="example32">
+                            <p id="parrafoex3">Párrafo de prueba</p>
+                            <PRE>$('#parrafoex3').css('<input id="attrex3" type="text" name="attr" placeholder="name">', '<input id="valex3" type="text" name="val" placeholder="value">');</PRE>
+                            <input id="example3button3" type="button" class="example3button" value="Asignar">
+                        </div>
+                        
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4>Manipulación de tamaño</h4>
+                    <div class="example" id="example4">
+                        <div id="capaex4">
+                            <div id="capa2ex4"></div>
+                        </div>
+                        <div id="ex4buttons">
+                            <input id="example4button1" type="button" class="example4button" value="Height padre">
+                            <input id="example4button2" type="button" class="exampl4button" value="Width hijo">
+                            <input id="example4reset" type="button" class="example4button" value="Reset">
+                            <input id="example4code" type="button" class="example4button" value="Ver código">
+                        </div>
+                    </div>
+                    <div class="literal" id="literal4" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#example4button1').click(function(){
+                var height = $('#capaex4').height(); 
+                var innerHeight = $('#capaex4').innerHeight();
+                var outerHeight = $('#capaex4').outerHeight();
+                alert("Height: " + height + "\n" + "InnerHeight: " + innerHeight + 
+                "\n" + "OuterHeight: " + outerHeight);
+            });
+            $('#example4button2').click(function(){
+                var width = $('#capa2ex4').width();
+                var innerWidth = $('#capa2ex4').innerWidth();
+                var outerWidth = $('#capa2ex4').outerWidth();
+                alert("Width: " + width + "\n" + "InnerWidth: " + innerWidth + 
+                "\n" + "OuterWidth: " + outerWidth);
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="capaex4"&gt;
+            &lt;div id="capa2ex4"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id="ex4buttons"&gt;
+            &lt;input id="example4button1" type="button" class="example4button" value="Height padre"&gt;
+            &lt;input id="example4button2" type="button" class="exampl4button" value="Width hijo"&gt;
+            &lt;input id="example4reset" type="button" class="example4button" value="Reset"&gt;
+            &lt;input id="example4code" type="button" class="example4button" value="Ver código"&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample4" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4>Manipulación de capas</h4>
+                    <div class="example" id="example5">
+                        <div id="capaex5">
+                            <p id="p1ex5">Primer párrafo</p>
+                            <p id="p2ex5">Segundo párrafo</p>
+                            <p id="p3ex5">Tercer párrafo</p>
+                        </div>
+                        <div id="ex5buttons">
+                            <input id="example5code" type="button" class="example5button" value="Ver código">
+                            <input id="example5reset" type="button" class="example5button" value="Reset">
+                            <input id="example5button4" type="button" class="example5button" value="unWrap">
+                            <input id="example5button3" type="button" class="example5button" value="WrapInner">
+                            <input id="example5button2" type="button" class="example5button" value="WrapAll">
+                            <input id="example5button1" type="button" class="example5button" value="Wrap">
+                        </div>
+                    </div>
+                    <div class="literal" id="literal4" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#example5button1').click(function(){
+                $('#capaex5 &gt; *').wrap( "&lt;div class='new'&gt;Capa WRAP&lt;/div&gt;" );
+            });
+            $('#example5button2').click(function(){
+                $('#capaex5 &gt; *').wrapAll( "&lt;div class='new'&gt;Capa WRAPALL&lt;/div&gt;" );
+            });
+            $('#example5button3').click(function(){
+                $('#capaex5 &gt; *').wrapInner( "&lt;div class='newinner new'&gt;Capa WRAPINNER&lt;/div&gt;" );
+            });
+            $('#example5button4').click(function(){
+                $('#capaex5 &gt; p').unwrap();
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="capaex5"&gt;
+            &lt;p id="p1ex5"&gt;Primer párrafo&lt;/p&gt;
+            &lt;p id="p2ex5"&gt;Segundo párrafo&lt;/p&gt;
+            &lt;p id="p3ex5"&gt;Tercer párrafo&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div id="ex5buttons"&gt;
+            &lt;input id="example5code" type="button" class="example5button" value="Ver código"&gt;
+            &lt;input id="example5reset" type="button" class="example5button" value="Reset"&gt;
+            &lt;input id="example5button4" type="button" class="example5button" value="unWrap"&gt;
+            &lt;input id="example5button3" type="button" class="example5button" value="WrapInner"&gt;
+            &lt;input id="example5button2" type="button" class="example5button" value="WrapAll"&gt;
+            &lt;input id="example5button1" type="button" class="example5button" value="Wrap"&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample4" class="closeCode" type="button" value="Cerrar">
                     </div>
                 </div>
             </div>

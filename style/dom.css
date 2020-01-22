@@ -25,4 +25,105 @@
     height: 300px;
     margin: 2% 0;
     margin-right: 2%;
+    overflow-y: scroll;
+}
+
+.example2button {
+    float: left;
+    margin-bottom: 1%;
+}
+
+.example22button {
+    float: right;
+    margin: 1% 0;
+}
+
+#example22input {
+    margin-top: 2.4%;
+}
+
+/* EJEMPLO 3 */
+.example3button {
+    float: right;
+    margin: 1% 0;
+}
+
+input[type='radio']{
+    margin-top: 2.7%;
+}
+
+#eye {
+    /*border: 1px solid black;*/
+    margin-bottom: -0.4%;
+    margin-left: 0.8%;
+}
+
+#eye:hover {
+    cursor: pointer;
+}
+
+#difpropattr {
+    display: block;
+}
+
+/* EJEMPLO 4 */
+#capaex4 {
+    border: 3px solid black;
+    float: left;
+    width: 40%;
+    height: 300px;
+    margin: 2% 0;
+    padding: 5% 10%;
+}
+
+#capa2ex4 {
+    border: 5px solid black;
+    width: 50%;
+    height: 50%;
+    margin: 22% 0 0 22%;
+}
+
+#ex4buttons {
+    float: left;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+#example4button {
+    float: right;
+}
+
+/* EJEMPLO 5 */
+.example5button {
+    float: right;
+    margin-bottom: 1%;
+}
+
+#p1ex5 {
+    padding: 2%;
+    width: 20%;
+    background-color: #9B00FF;
+}
+
+#p2ex5 {
+    padding: 2%;
+    width: 20%;
+    background-color: #0003FF;
+}
+
+#p3ex5 {
+    padding: 2%;
+    width: 20%;
+    background-color: #FFA200;
+}
+
+.new {
+    margin: 1% 1%;
+    background-color: #72FFF1;
+    padding: 1%;
+    border: 2px solid black;
+}
+
+.newinner {
+    padding: 5% 5%;
 }
