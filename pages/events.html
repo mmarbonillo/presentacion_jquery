@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Maria Del Mar Fernandez Bonillo">
+    <title>JQUERY</title>
+
+    <!----------FONTS---------->
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/events.css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascript/events.js"></script>
+    <script type="text/javascript" src="../javascript/codebuttonsevents.js"></script>
+</head>
+<body>
+    <div id="all">
+        <div id="header">
+            <div id="logo">
+                <img id="logoimg" src="../images/jquery/logo.png" alt="logo" >
+            </div>
+            <div id="menu">
+                <a href="../index.html">Introducción</a>
+                <a href="selectores.html">Selectores</a>
+                <a href="dom.html">DOM</a>
+                <a href="#">Eventos</a>
+                <a href="#">Efectos</a>
+            </div>
+        </div>
+        <div id="content">
+            <h1>Eventos</h1>
+            <div class="text">
+                <h3>¿Qué es un evento?</h3>
+                <div class="subtext">
+                    <p>Un evento es una acción realizada sobre/por la aplicación de manera impredecible y que es factible a generar una respuesta.</p>
+                </div>
+                <h3>¿Qué eventos hay?</h3>
+                <div class="subtext">
+                    <h4>Eventos de ratón</h4>
+                    <div class="literal">
+<PRE>
+    &lt;script type="text/javascript"&gt;
+
+        x.mouseenter()    //Evento que se dispara cuando el ratón entra en el elemento x
+        x.mouseover()     //Este evento se dispara cuando el ratón entra en el elemento x o en cualquiera de sus hijos
+        x.mousemove()     //Evento que se dispara cuando el ratón se mueve dentro del elemento x
+        x.mousedown()     //Evento que se produce cuando se presiona un botón del ratón
+        x.mouseup()       //Este evento se dispara cuando se suelta un botón pulsado del ratón
+        x.click()         //Este evento solo se producirá cuando se haga <span class="cursiva">mousedown</span> y <span class="cursiva">mouseup</span> en el mismo elemento
+        x.dblclick()      //Evento que se dispara al producirse dos eventos <span class="cursiva">click</span> seguidos
+        x.mouseleave()    //Evento que se produce cuando el ratón abandona el elemento x
+        x.mouseout()      //Este evento se dispara cuando el ratón sale del elemento x o de cualquiera de sus hijos
+        x.hover(a, b)     //Esta es la forma de abreviar <span class="cursiva">mouseenter</span> y <span class="cursiva">mouseout</span>
+
+    &lt;/script&gt;
+</PRE>
+                    </div>
+                    <div class="example" id="example1" style="margin-top: 1%;">
+                        <p>Diferencia entre los eventos de entrada y salida:</p>
+                        <div id="padre1example1">
+                            <p id="p1"></p>
+                            <p id="p2"></p>
+                            <div id="hijo1example1">
+                                <p id="p3"></p>
+                                <p id="p4"></p>
+                            </div>
+                        </div>
+                        <div id="padre2example1">
+                            <p id="p5"></p>
+                            <p id="p6"></p>
+                            <div id="hijo2example1">
+                                <p id="p7"></p>
+                                <p id="p8"></p>
+                            </div>
+                        </div>
+                        <input id="example1code" type="button" class="example1button" value="Ver código">
+                    </div>
+                    <div class="literal" id="literal1" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#padre1example1').on({
+                mouseenter: function(){
+                    enter1++;
+                    $("#p1").text("MouseEnter: " + enter1);
+                },
+                mouseleave: function(){
+                    leave1++;
+                    $("#p2").text("Mouseleave: " + leave1);
+                }
+            });
+            $('#hijo1example1').on({
+                mouseenter: function(){
+                    enter2++;
+                    $('#p3').text("Mouseenter: " + enter2);
+                },
+                mouseleave: function(){
+                    leave2++;
+                    $('#p4').text("Mouseleave: " + leave2);
+                }
+            });
+        
+            $('#padre2example1').on({
+                mouseover: function(){
+                    over1++;
+                    $('#p5').text("Mouseover: " + over1);
+                },
+                mouseout: function(){
+                    leave2++;
+                    $('#p6').text("Mouseout: " + out1);
+                }
+            });
+            $('#hijo2example1').on({
+                mouseover: function(){
+                    over2++;
+                    $('#p7').text("Mouseover: " + over2);
+                },
+                mouseout: function(){
+                    out2++;
+                    $('#p8').text("Mouseout: " + out2);
+                }
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="padre1example1"&gt;
+            &lt;p id="p1"&gt;&lt;/p&gt;
+            &lt;p id="p2"&gt;&lt;/p&gt;
+            &lt;div id="hijo1example1"&gt;
+                &lt;p id="p3"&gt;&lt;/p&gt;
+                &lt;p id="p4"&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id="padre2example1"&gt;
+            &lt;p id="p5"&gt;&lt;/p&gt;
+            &lt;p id="p6"&gt;&lt;/p&gt;
+            &lt;div id="hijo2example1"&gt;
+                &lt;p id="p7"&gt;&lt;/p&gt;
+                &lt;p id="p8"&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample1" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4>Eventos de teclado</h4>
+                    <div class="literal">
+<PRE>
+    x.keydown()     //Evento que se dispara al pulsar una tecla 
+    x.keypress()    //Evento que se dispara al pulsar una tecla
+    x.keyup()       //Evento que se dispara al levantar una tecla pulsada
+</PRE>
+                    </div>
+                    <div class="example" id="example2" style="margin-top: 1%;">
+                        <div id="capainputex2">
+                            <input type="text" id="inputex2">
+                        </div>
+                        <div id="capamuestraex2">
+                            <p id="kd">KEYDOWN</p>
+                            <p id="kp">KEYPRESS</p>
+                            <p id="ku">KEYUP</p>
+                        </div>
+                        <input id="example2code" type="button" class="example2button" value="Ver código">
+                    </div>
+                    <div class="literal" id="literal2" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#inputex2').on({
+                keydown: function(){
+                    $('#kp, #ku').css('background-color', 'unset');
+                    $('#kd').css('background-color', 'blue');
+                },
+                keypress: function(){
+                    $('#kd, #ku').css('background-color', 'unset');
+                    $('#kp').css('background-color', 'blue');
+                },
+                keyup: function(){
+                    $('#kd, #kp').css('background-color', 'unset');
+                    $('#ku').css('background-color', 'blue');
+                }
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="capainputex2"&gt;
+            &lt;input type="text" id="inputex2"&gt;
+        &lt;/div&gt;
+        &lt;div id="capamuestraex2"&gt;
+            &lt;p id="kd"&gt;KEYDOWN&lt;/p&gt;
+            &lt;p id="kp"&gt;KEYPRESS&lt;/p&gt;
+            &lt;p id="ku"&gt;KEYUP&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample2" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4>Eventos de formulario</h4>
+                    <div class="literal">
+<PRE>
+    x.focusin()     //Evento que salta cuando un elemento o algún hijo de este gana el foco
+    x.focusout()    //Evento que salta cuando un elemento o algún hijo de este pierde el foco
+    x.focus()       //Este evento se dispara cuando un elemento recibe el foco
+    x.blur()        //Este evento se dispara cuando un elemento pierde el foco
+    x.change()      //Evento que se dispara cuando cambia el valor de un elemento
+    x.select()
+    x.submit()
+</PRE>
+                    </div>
+                    <div class="example" id="example3" style="margin-top: 1%;">
+                        <form action="#">
+                            <div id="capa1ex3">
+                                <input type="text" id="inputex3">
+                                <div id="capa2ex3">
+                                    <input type="text" id="input2ex3">
+                                </div >
+                            </div>
+                            <div id="capa3ex3">
+
+                            </div>
+                        </form>
+                        <input id="example3code" type="button" class="example3button" value="Ver código">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>María del Mar Fernández Bonillo</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+#padre1example1, #padre2example1 {
+    float: left;
+    border: 2px solid black;
+    width: 35%;
+    height: 350px;
+    margin-bottom: 1%;
+    margin-right: 3%;
+}
+
+#hijo1example1, #hijo2example1 {
+    border: 2px solid black;
+    width: 60%;
+    height: 60%;
+    margin-top: 10%;
+    margin-left: 17%;
+}
+
+#example1code {
+    float: right;
+    margin-top: 30%;
+}
+
+/* EJEMPLO 2 */
+#capainputex2, #capamuestraex2 {
+    float: left;
+    width: 100%;
+    margin-top: 3%;
+}
+
+#capamuestraex2 > p{
+    display: inline;
+    margin-right: 3%;
+}
+
+#example2code {
+    float: right;
+    margin-bottom: 1%;
+}
+
+/* EJEMPLO 3 */
+
+#capa1ex3, #capa2ex3 {
+    margin: 2% 0;
+    padding: 2% 1%;
+    border: 2px solid black;
+}
+
+#capa1ex3 {
+    float: left;
+    width: 30%;
+}
+
+#capa3ex3 {
+    float: left;
+}
