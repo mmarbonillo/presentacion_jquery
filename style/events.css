@@ -50,6 +50,13 @@
     width: 30%;
 }
 
-#capa3ex3 {
+#capa3ex3, #capa4ex3 {
+    /*border: 2px solid red;*/
     float: left;
+    margin: 2% 0 0 2%;
+}
+
+#example3code {
+    float: right;
+    margin-top: 11%;
 }

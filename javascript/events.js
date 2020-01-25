@@ -98,6 +98,9 @@ $().ready(function () {
         },
         blur: function(){
             $("#capa2ex3").append("<p>Input2: Blur</p>");
+        },
+        change: function(){
+            alert("chage");
         }
     });
     $('#capa1ex3').on({
@@ -127,6 +130,26 @@ $().ready(function () {
         blur: function(){
             $("#capa2ex3").append("<p>Capa2: Blur</p>");
         }
+    });
+
+    $('#selectex3').change(function(){
+        $('#valueselect').text( $(this).val());
+    });
+    $('#inputchangeex3').change(function(){
+        $('#valueinputex3').text($('#inputchangeex3').val());
+    });
+
+    $('#inputex3select').select(function(){
+        $('#valueinputselectex3').fadeIn(200).delay(700).fadeOut(200);
+    });
+
+    $('#formex3').submit(function(){
+        alert("Formulario enviado :D");
+    });
+
+    //EJEMPLO 4
+    $(window).unload(function(){
+        alert("hola");
     });
 
 });

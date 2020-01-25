@@ -16,4 +16,13 @@ $(function () {
             height: 'hide'
           });
     });
+
+    $('#example3code').click(function(){
+        $('#literal3').toggle(1000);
+    });
+    $('#closeexample3').click(function(){
+        $('#literal3').animate({
+            height: 'hide'
+          });
+    });
 });
