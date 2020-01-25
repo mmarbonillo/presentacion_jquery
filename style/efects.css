@@ -1,0 +1,15 @@
+/* EJEMPLO 1 */
+.example1button, .example2button, .example3button {
+    float: left;
+    margin: 1% 0;
+}
+
+#imgex1{
+    margin-top: 1%;
+    height: 540px;
+}
+
+#imgex2, #imgex3{
+    margin-top: 1%;
+    height: 400px;
+}

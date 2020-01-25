@@ -34,7 +34,143 @@
             <div class="text">
                 <h3>Efectos Básicos</h3>
                 <div class="subtext">
-
+                    <div class="literal">
+<PRE>
+    x.hide(y)        //Esconde el elemento x a una velocidad de <span class="cursiva">y</span> milisegundos
+    x.show(y)        //Muestra el elemento x a una velocidad de <span class="cursiva">y</span> milisegundos
+    x.toggle(y)      //Intercala entre hide y show
+</PRE>
+                    </div>
+                    <div class="example" id="example1" style="margin-top: 1%;">
+                        <div id="imgex1">
+                            <img id="felixex1" src="../images/Captura.JPG" width="500px" height="100%" style="display: none;">
+                        </div>
+                        <input id="ex1button" class="example1button" type="button" value="show()">
+                        <input id="ex1button2" class="example1button" type="button" value="hide()">
+                        <input id="ex1button3" class="example1button" type="button" value="toggle()">
+                        <input id="examplecode1" type="button" class="example1button" value="Ver código">
+                    </div>
+                    <div class="literal" id="literal1" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex1button').click(function(){
+                $('#felixex1').show();
+            });
+            $('#ex1button2').click(function(){
+                $('#felixex1').hide();
+            });
+            $('#ex1button3').click(function(){
+                $('#felixex1').toggle();
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;img id="felixex1" src="../images/Captura.JPG" width="500px" style="display: none;"&gt;
+        &lt;input id="ex1button" class="example1button" type="button" value="show()"&gt;
+        &lt;input id="ex1button2" class="example1button" type="button" value="hide()"&gt;
+        &lt;input id="ex1button3" class="example1button" type="button" value="toggle()"&gt;
+        &lt;input id="example1code" type="button" class="example1button" value="Ver código"&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample1" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h3>Efectos de Fade</h3>
+                    <div class="literal">
+<PRE>
+    x.fadeIn(y)          //Hace aparecer el elemento x usando la opacidad a una velocidad de <span class="cursiva">y</span> milisegundos
+    x.fadeOut(y)         //Hace desaparecer el elemento x usando la opacidad a una velocidad de <span class="cursiva">y</span> milisegundos
+    x.fadeTo(y, z)       //Cambia la opacidad (<span class="cursiva">z</span>) del elemento x a una velocidad de <span class="cursiva">y</span> milisegundos
+    x.fadeToggle()       //Intercala entre fadeIn y fadeOut
+</PRE>
+                    </div>
+                    <div class="example" id="example2" style="margin-top: 1%;">
+                        <div id="imgex2">
+                            <img id="profesex2" src="../images/profes.jpg" width="500px" style="display: none;">
+                        </div>
+                        <input id="ex2button1" class="example2button" type="button" value="fadeIn()">
+                        <input id="ex2button2" class="example2button" type="button" value="fadeOut()">
+                        <input id="ex2button3" class="example2button" type="button" value="fadeTo()">
+                        <input id="ex2button4" class="example2button" type="button" value="fadeToggle()">
+                        <input id="examplecode2" type="button" class="example2button" value="Ver código">
+                    </div>
+                    <div class="literal" id="literal2" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex2button1').click(function(){
+                $('#profesex2').fadeIn(1000);
+            });
+            $('#ex2button2').click(function(){
+                $('#profesex2').fadeOut(2000);
+            });
+            $('#ex2button3').click(function(){
+                $('#profesex2').fadeTo(2000, 0.3);
+            });
+            $('#ex2button4').click(function(){
+                $('#profesex2').fadeToggle(1500);
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="imgex2"&gt;
+            &lt;img id="profesex2" src="../images/profes.jpg" width="500px" style="display: none;"&gt;
+        &lt;/div&gt;
+        &lt;input id="ex2button1" class="example2button" type="button" value="fadeIn()"&gt;
+        &lt;input id="ex2button2" class="example2button" type="button" value="fadeOut()"&gt;
+        &lt;input id="ex2button3" class="example2button" type="button" value="fadeTo()"&gt;
+        &lt;input id="ex2button4" class="example2button" type="button" value="fadeToggle()"&gt;
+        &lt;input id="examplecode2" type="button" class="example2button" value="Ver código"&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample2" class="closeCode" type="button" value="Cerrar">
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h3>Efectos de Slide</h3>
+                    <div class="literal">
+<PRE>
+    x.slideDown()       //Muestra desplegando hacia abajo el elemento x
+    x.slideUp()         //Oculta desplegando hacia arriba el elemento x
+    x.slideToggle()     //Intercala entre slideDown y slideUp
+</PRE>
+                    </div>
+                    <div class="example" id="example3" style="margin-top: 1%;">
+                        <div id="imgex3">
+                            <img id="felixex3" src="../images/felix.jpg" height="400px" style="display: none;">
+                        </div>
+                        <input id="ex3button1" class="example3button" type="button" value="slideDown()">
+                        <input id="ex3button2" class="example3button" type="button" value="slideUp()">
+                        <input id="ex3button3" class="example3button" type="button" value="slideToggle()">
+                        <input id="examplecode3" type="button" class="example3button" value="Ver código">
+                    </div>
+                    <div class="literal" id="literal3" style="display: none;">
+<PRE>
+    &lt;head&gt;
+        &lt;script&gt;
+            $('#ex3button1').click(function(){
+                $('#felixex3').slideDown(800);
+            });
+            $('#ex3button2').click(function(){
+                $('#felixex3').slideUp(1200);
+            });
+            $('#ex3button3').click(function(){
+                $('#felixex3').slideToggle(1500);
+            });
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="imgex3"&gt;
+            &lt;img id="felixex3" src="../images/felix.jpg" height="400px" style="display: none;"&gt;
+        &lt;/div&gt;
+        &lt;input id="ex3button1" class="example3button" type="button" value="slideDown()"&gt;
+        &lt;input id="ex3button2" class="example3button" type="button" value="slideUp()"&gt;
+        &lt;input id="ex3button3" class="example3button" type="button" value="slideToggle()"&gt;
+        &lt;input id="examplecode3" type="button" class="example3button" value="Ver código"&gt;
+    &lt;/body&gt;
+</PRE>
+                        <input id="closeexample3" class="closeCode" type="button" value="Cerrar">
+                    </div>
                 </div>
             </div>
         </div>

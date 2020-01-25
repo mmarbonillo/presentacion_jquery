@@ -1,3 +1,36 @@
+#flechas {
+    float: left;
+    width: 100%;
+    margin-top: 4%;
+}
+
+#flechaderecha {
+    float: right
+}
+
+.flecha:hover {
+    cursor: pointer;
+}
+
+.flechas{
+    float: left;
+    width: 10%
+}
+
+#numpaginas {
+    width: 20%;
+    height: 100%;
+    /*border: 1px solid black;*/
+    float: left;
+    margin-top: 2%;
+    margin-left: 28%;
+    margin-right: 31.8%;
+}
+
+#numpaginas a {
+    margin-left: 15%;
+}
+
 .capa1, .capa2, .clase1, .clase2, .clase3, .clase4{
     text-align: center;
     width: 120px;

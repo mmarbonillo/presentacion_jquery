@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dragable{
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            float: left;
+            margin-right: 5%;
+        }
+        #otherdiv {
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            float: left;
+        }
+    </style>
+    <script>
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+    <div id="dragable" draggable="true">
+
+    </div>
+    <div id="otherdiv">
+
+    </div>
+</body>
+</html>

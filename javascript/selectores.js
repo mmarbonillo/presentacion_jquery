@@ -33,6 +33,14 @@ $().ready(function(){
         }
     });
 
+    $('#numpaginas a').click(function(){
+        var pagina = parseInt($("#pagina").val());
+        $('#pag'+pagina).css('display', 'none');
+        var newpag = parseInt($(this).attr('id'));
+        $('#pag'+newpag).css('display', 'block');
+        $("#pagina").val(newpag + "");
+    });
+
     //EJEMPLO 1
     $('#parrafoEjemplo').click(function(){
         alert('Has pinchado el párrafo');

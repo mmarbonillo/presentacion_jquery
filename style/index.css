@@ -73,20 +73,6 @@ body{
     font-size: larger;
 }
 
-#flechas {
-    float: left;
-    width: 100%;
-    margin-top: 4%;
-}
-
-#flechaderecha {
-    float: right
-}
-
-.flecha:hover {
-    cursor: pointer;
-}
-
 .text {
     float: left;
     width: 90%;
@@ -151,7 +137,7 @@ input[type='button']:hover {
     border-radius: 20px;
 }
 
-::-webkit-scrollbar {
+.literal::-webkit-scrollbar {
     display: none;
 }
 
