@@ -100,7 +100,7 @@ $().ready(function(){
         $('#capaex5 > *').wrapInner( "<div class='newinner new'>Capa WRAPINNER</div>" );
     });
     $('#example5button4').click(function(){
-        $('#capaex5 > p').unwrap();
+        $('#capaex5 > *').unwrap();
     });
 
 });
