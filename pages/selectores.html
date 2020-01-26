@@ -194,14 +194,14 @@
                 <div class="text">
                     <h3>Selectores de Hijos</h3>
                     <div class="subtext">
-                        <h4>:first-child</h4>
-                        <p>Selecciona todos los elementos que son <span class="negrita">el primer hijo de su padre</span>.</p>
+                        <h4>x:first-child</h4>
+                        <p>Selecciona todos los elementos de tipo x que son <span class="negrita">el primer hijo de su padre</span>.</p>
                         <div class="example" id="example4">
                             <div id="ex4capa1">
                                 <p>Primer hijo</p>
                                 <p>Segundo hijo</p>
-                                <div id="ex4capa2">
-                                    <p>Primer hijo</p>
+                                <div id="ex4capa2" style="padding-top: 2%;">
+                                    <a href="#">Primer hijo</a>
                                     <p>Segundo hijo</p>
                                     <div id="ex4capa3">
                                         <p>Primer hijo</p>
@@ -211,39 +211,44 @@
                             </div>
                             <input id="example4button" type="button" class="example4button" value="Ver código">
                             <input id="example4reset" type="button" class="example4button" value="Reset">
-                            <input id="firstchildex4" type="button" class="example4button" value="Primer hijo">
+                            <input id="firstchildex4" type="button" class="example4button" value="Primer hijo p">
                         </div>
                         <div class="literal" id="literalexample4" style="display: none;">
 <PRE>
     &lt;head&gt;
         &lt;script&gt;
             $('#firstchildex4').click(function(){
-                $("#example4 p:first-child").css("background-color", "yellow");
+                $("#ex4capa1 p:first-child").css("background-color", "yellow");
             });
             $('#example4reset').click(function(){
-                $("#example4 p:first-child").css("background-color", "unset");
+                $("#ex4capa1 p:first-child").css("background-color", "unset");
             });
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;div id="ex4capa1"&gt;
-            &lt;p&gt;Primer hijo&lt;/p&gt;
-            &lt;p&gt;Segundo hijo&lt;/p&gt;
-            &lt;div id="ex4capa2"&gt;
+        &lt;div class="example" id="example4"&gt;
+            &lt;div id="ex4capa1"&gt;
                 &lt;p&gt;Primer hijo&lt;/p&gt;
                 &lt;p&gt;Segundo hijo&lt;/p&gt;
-                &lt;div id="ex4capa3"&gt;
+                &lt;div id="ex4capa2"&gt;
                     &lt;p&gt;Primer hijo&lt;/p&gt;
                     &lt;p&gt;Segundo hijo&lt;/p&gt;
+                    &lt;div id="ex4capa3"&gt;
+                        &lt;p&gt;Primer hijo&lt;/p&gt;
+                        &lt;p&gt;Segundo hijo&lt;/p&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
+            &lt;input id="example4button" type="button" class="example4button" value="Ver código"&gt;
+            &lt;input id="example4reset" type="button" class="example4button" value="Reset"&gt;
+            &lt;input id="firstchildex4" type="button" class="example4button" value="Primer hijo"&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 </PRE>
                             <input id="closeexample4" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
-                        <h4>:first-of-type</h4>
+                        <h4>x:first-of-type</h4>
                         <p>Selecciona todos los elementos de tipo <span class="cursiva">x</span> que son los primeros tipo <span class="cursiva">x</span> de su padre.</p>
                         <div class="example" id="example5">
                             <div id="ex5capa1">
@@ -305,7 +310,7 @@
                             <input id="closeexample5" class="closeCode" type="button" value="Cerrar">
                         </div>
                         <div style="clear: both;"></div>
-                        <h4>:last-child</h4>
+                        <h4>x:last-child</h4>
                         <p>Selecciona todos los elementos que son <span class="negrita">el último hijo de su padre</span>.</p>
                         <div class="example" id="example6">
                             <div id="ex6capa1">
@@ -538,17 +543,17 @@
                             contando desde el último hijo.</p>
                         <div class="example" id="example10">
                             <div id="ex10capa1">
-                                <p>Primer elemento p</p>
                                 <a href="#">Primer elemento a</a><br>
+                                <p>Primer elemento p</p>
                                 <a href="#">Segundo elemento a</a>
                                 <div id="ex10capa2">
-                                    <a href="#">Primer elemento a</a>
                                     <p>Primer elemento p</p>
+                                    <a href="#">Primer elemento a</a>
                                     <p>Segunto elemento p</p>
                                     <div id="ex10capa3">
+                                        <a href="#">Primer elem a</a><br>
                                         <p>Primer elem p</p>
                                         <p>Segunto elem p</p>
-                                        <a href="#">Primer elem a</a><br>
                                         <a href="#">Segundo elem a</a>
                                     </div>
                                 </div>
@@ -1189,15 +1194,22 @@
                         <h4>Póximo adyacente <span class="cursiva">('x + y')</span></h4>
                         <p>Selecciona el primer elemento hermano de <span class="cursiva">x</span> de tipo <span class="cursiva">y</span> </p>
                         <div class="example" id="example20">
-                            <h3 class="ex20h3">Partimos de mi.</h3>
-                            <p>Primer hermano</p>
-                            <a href="#">Segundo hermano</a><br><br>
-                            <h3 class="ex20h3">Partimos de mi.</h3>
-                            <a href="#">Primer hermano</a>
-                            <p>Segundo hermano</p>
-                            <h3 class="ex20h3">Partimos de mi.</h3>
-                            <p>Primer hermano</p>
-                            <a href="#">Segundo hermano</a><br><br>
+                            <div class="ex20capas">
+                                <h3 class="ex20h3">Partimos de mi.</h3>
+                                <p>Primer hermano</p>
+                                <a href="#">Segundo hermano</a><br><br>
+                            </div>
+                            <div class="ex20capas">
+                                <h3 class="ex20h3">Partimos de mi.</h3>
+                                <a href="#">Primer hermano</a>
+                                <p>Segundo hermano</p>
+                            </div>
+                            <div class="ex20capas">
+                                <h3 class="ex20h3">Partimos de mi.</h3>
+                                <p>Primer hermano</p>
+                                <a href="#">Segundo hermano</a><br><br>
+                            </div>
+                            <div id="ex20buttons"></div>
                             <input id="example20code" type="button" class="example20button" value="Ver código">
                             <input id="example20reset" class="example20button" type="button"  value="Reset">
                             <input id="ex20button2" class="example20button" type="button"  value="Primer enlace hermano">
@@ -1220,19 +1232,27 @@
         &lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
-        &lt;p&gt;Primer hermano&lt;/p&gt;
-        &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;&lt;br&gt;&lt;br&gt;
-        &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
-        &lt;a href="#"&gt;Primer hermano&lt;/a&gt;
-        &lt;p&gt;Segundo hermano&lt;/p&gt;
-        &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
-        &lt;p&gt;Primer hermano&lt;/p&gt;
-        &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;&lt;br&gt;&lt;br&gt;
-        &lt;input id="example20code" type="button" class="example20button" value="Ver código"&gt;
-        &lt;input id="example20reset" class="example20button" type="button"  value="Reset"&gt;
-        &lt;input id="ex20button2" class="example20button" type="button"  value="Primer enlace hermano"&gt;
-        &lt;input id="ex20button1" class="example20button" type="button"  value="Primer párrafo hermano"&gt;
+        &lt;div class="ex20capas"&gt;
+            &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
+            &lt;p&gt;Primer hermano&lt;/p&gt;
+            &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+        &lt;/div&gt;
+        &lt;div class="ex20capas"&gt;
+            &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
+            &lt;a href="#"&gt;Primer hermano&lt;/a&gt;
+            &lt;p&gt;Segundo hermano&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="ex20capas"&gt;
+            &lt;h3 class="ex20h3"&gt;Partimos de mi.&lt;/h3&gt;
+            &lt;p&gt;Primer hermano&lt;/p&gt;
+            &lt;a href="#"&gt;Segundo hermano&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+        &lt;/div&gt;
+        &lt;div id="ex20buttons"&gt;&lt;/div&gt;
+            &lt;input id="example20code" type="button" class="example20button" value="Ver código"&gt;
+            &lt;input id="example20reset" class="example20button" type="button"  value="Reset"&gt;
+            &lt;input id="ex20button2" class="example20button" type="button"  value="Primer enlace hermano"&gt;
+            &lt;input id="ex20button1" class="example20button" type="button"  value="Primer párrafo hermano"&gt;
+        &lt;/div&gt;
     &lt;/body&gt;
 </PRE>
                             <input id="closeexample20" class="closeCode" type="button" value="Cerrar">
@@ -1241,22 +1261,30 @@
                         <h4>Próximo hermano <span class="cursiva">('x ~ y')</span></h4>
                         <p>Selecciona todos los hermanos de <span class="cursiva">x</span> que sean de tipo <span class="cursiva">y</span></p>
                         <div class="example" id="example21">
-                            <h3 class="ex21h3">Partimos de mi.</h3>
-                            <p>Primer hermano</p>
-                            <a href="#">Segundo hermano</a>
-                            <p>Tercer hernamo</p>
-                            <h3 class="ex21h3">Partimos de mi.</h3>
-                            <a href="#">Primer hermano</a>
-                            <p>Segundo hermano</p>
-                            <a href="#">Tercer hermano</a>
-                            <h3 class="ex21h3">Partimos de mi.</h3>
-                            <p>Primer hermano</p>
-                            <a href="#">Segundo hermano</a>
-                            <p>Tercer hermano</p>
-                            <input id="example21code" type="button" class="example21button" value="Ver código">
-                            <input id="example21reset" class="example21button" type="button"  value="Reset">
-                            <input id="ex21button2" class="example21button" type="button"  value="Enlaces hermanos">
-                            <input id="ex21button1" class="example21button" type="button"  value="Párrafos hermanos">
+                            <div class="ex21capas">
+                                <h3 class="ex21h3">Partimos de mi.</h3>
+                                <p>Primer hermano</p>
+                                <a href="#">Segundo hermano</a>
+                                <p>Tercer hernamo</p>
+                            </div>
+                            <div class="ex21capas">
+                                <h3 class="ex21h3">Partimos de mi.</h3>
+                                <a href="#">Primer hermano</a>
+                                <p>Segundo hermano</p>
+                                <a href="#">Tercer hermano</a>
+                            </div>
+                            <div class="ex21capas">
+                                <h3 class="ex21h3">Partimos de mi.</h3>
+                                <p>Primer hermano</p>
+                                <a href="#">Segundo hermano</a>
+                                <p>Tercer hermano</p>
+                            </div>
+                            <div class="ex21buttons">
+                                <input id="example21code" type="button" class="example21button" value="Ver código">
+                                <input id="example21reset" class="example21button" type="button"  value="Reset">
+                                <input id="ex21button2" class="example21button" type="button"  value="Enlaces hermanos">
+                                <input id="ex21button1" class="example21button" type="button"  value="Párrafos hermanos">
+                            </div>
                         </div>
                         <div class="literal" id="literalexample21" style="display: none;">
 <PRE>

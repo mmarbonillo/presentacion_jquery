@@ -80,10 +80,10 @@ $().ready(function(){
 
     //EJEMPLO 4
     $('#firstchildex4').click(function(){
-        $("#example4 p:first-child").css("background-color", "yellow");
+        $("#ex4capa1 p:first-child").css("background-color", "yellow");
     });
     $('#example4reset').click(function(){
-        $("#example4 p:first-child").css("background-color", "unset");
+        $("#ex4capa1 p:first-child").css("background-color", "unset");
     });
 
     //EJEMPLO 5
@@ -210,7 +210,7 @@ $().ready(function(){
         $('#example15 div:has(div)').css("border", "3px solid red");
     });
     $('#example15reset').click(function(){
-        $('#example15 > div').css("border", "2px solid black");
+        $('#example15 div').css("border", "2px solid black");
     });
 
     //EJEMPLO 16

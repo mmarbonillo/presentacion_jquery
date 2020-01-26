@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Maria Del Mar Fernandez Bonillo">
-    <title>JQUERY</title>
+    <title>Manipulacion del árbol DOM</title>
 
     <!----------FONTS---------->
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -55,15 +55,15 @@
         $('content').insertAfter(x)      //Inserta el contenido especificado despues de cada elemento x
         $('content').insertBefore(x)     //Inserta el contenido especificado antes de cada elemento x
         x.prepend('content')             //Añade contenido al principio de la etiqueta x
-        ('content').prependTo(x)         //Añade el contenido x al final de la etiqueta x
+        $('content').prependTo(x)         //Añade el contenido x al final de la etiqueta x
         x.append('content')              //Añade contenido al final de la etiqueta x
-        ('content').appendTo(x)          //Añade el contenido x al final de la etiqueta x
+        $('content').appendTo(x)          //Añade el contenido x al final de la etiqueta x
         $('content').replaceAll(x)       //Remplaza el elemento(s) x por el contenido especificado
         x.replaceWith('content')         //Remplaza el element o(s) x por el contenido especificado
-                                         //y devuelve el número de elementos que ha eliminado
+                                           y devuelve el número de elementos que ha eliminado
         x.text()                         //Devuelve una cadena de texto con todo el contenido de la página
         x.text('content')                //Sustituye el contenido del elemento(s) x por el especificado.
-                                         //No reconoce etiquetas HTML
+                                           No reconoce etiquetas HTML
         x.empty()                        //Vacía (literalmente) la etiqueta x
         x.remove()                       //Elimina el elemento(s) x así como todo el código jQuery asociados a estos
         x.detach()                       //Elimina el elemento(s) x dejando el código jQuery asociado
@@ -82,9 +82,9 @@
         x.innerWidth()                   //Devuelve el ancho INTERIOR de un elemento (incluye padding pero no borde)
         x.outerHeigth()                  //Devuelve el alto total del elemento x (incluye margen, borde y padding)
         x.outerWidth()                   //Devuelve el ancho total del elemento x (incluye margen, borde y padding)
-        x.wrap('content')                //Añade el padre 'content' al elemento(s) x
-        x.wrapAll()
-        x.wrapInner()
+        x.wrap('content')                //Añade el padre 'content' a cada elemento x
+        x.wrapAll('content')             //Añade el padre 'content' a todos los elementos x a la vez
+        x.wrapInner('content')           //Añade el padre 'content' al contenido del elemento x
         x.unwrap()
 
     &lt;/script&gt;
@@ -98,7 +98,6 @@
                         <p class="ex01">Párrafo 2</p >
                         <p class="ex01">Párrafo 3</p >
                         <input id="example1code" type="button" class="example1button" value="Ver código">
-                        <input id="example1reset" type="button" class="example1button" value="Reset">
                         <input id="example1button3" type="button" class="example1button" value="class='ambas'(toggle)">
                         <input id="example1button2" type="button" class="example1button" value="class='fondo azul'">
                         <input id="example1button" type="button" class="example1button" value="class='rojo'">
@@ -151,7 +150,6 @@
                         <input id="example2button5" type="button" class="example2button" value="$('p').replaceWith('a')">
                         <input id="example2button6" type="button" class="example2button" value="$('div').text()">
                         <input id="example2button7" type="button" class="example2button" value="$('div').empty()">
-                        <input id="example2reset" type="button" class="example2button" value="Reset">
                         <input id="example2code" type="button" class="example2button" value="Ver código">
                     </div>
                     <div class="literal" id="literal2" style="display: none;">
@@ -351,7 +349,6 @@
                         </div>
                         <div id="ex5buttons">
                             <input id="example5code" type="button" class="example5button" value="Ver código">
-                            <input id="example5reset" type="button" class="example5button" value="Reset">
                             <input id="example5button4" type="button" class="example5button" value="unWrap">
                             <input id="example5button3" type="button" class="example5button" value="WrapInner">
                             <input id="example5button2" type="button" class="example5button" value="WrapAll">

@@ -91,13 +91,13 @@ $().ready(function(){
 
     //EJEMPLO 5
     $('#example5button1').click(function(){
-        $('#capaex5 > *').wrap( "<div class='new'>Capa WRAP</div>" );
+        $('#capaex5 > *').wrap( "<div class='new'><p>Capa WRAP</p></div>" );
     });
     $('#example5button2').click(function(){
-        $('#capaex5 > *').wrapAll( "<div class='new'>Capa WRAPALL</div>" );
+        $('#capaex5 > *').wrapAll( "<div class='new'><p>Capa WRAPALL</p></div>" );
     });
     $('#example5button3').click(function(){
-        $('#capaex5 > *').wrapInner( "<div class='newinner new'>Capa WRAPINNER</div>" );
+        $('#capaex5 > *').wrapInner( "<div class='newinner new'><p>Capa WRAPINNER</p></div>" );
     });
     $('#example5button4').click(function(){
         $('#capaex5 > *').unwrap();

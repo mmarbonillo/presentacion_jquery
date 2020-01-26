@@ -60,6 +60,10 @@
     padding-left: 1%;
 }
 
+#ex5capa1, #ex7capa1 {
+    width: 35%;
+}
+
 #ex10capa1, #ex11capa1, #ex12capa1 {
     float: left;
     border: 2px solid black;
@@ -186,4 +190,14 @@ td{
 .example20button, .example21button {
     float: right;
     margin-bottom: 1%;
+}
+
+.ex20capas, .ex21capas {
+    float: left;
+    margin-right: 18%;
+}
+
+#ex20buttons, #ex21buttons {
+    float: left;
+    width: 100%;
 }
